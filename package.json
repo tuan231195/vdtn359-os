@@ -84,6 +84,7 @@
         "@vdtn359/transformer": "file:packages/transformer",
         "@vdtn359/semantic-release-monorepo": "file:packages/semantic-release-monorepo",
         "@vdtn359/package-manager-utils": "file:packages/package-manager-utils",
+        "@vdtn359/url": "file:packages/url",
         "babel-plugin-add-class-properties": "file:packages/babel-plugin-add-class-properties"
     }
 }

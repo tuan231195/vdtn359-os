@@ -1,0 +1,19 @@
+{
+    "name": "@vdtn359/url",
+    "version": "0.0.0-develop",
+    "description": "Custom URL implementation",
+    "type": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "lodash.pick": "^4.4.0",
+        "lodash.omitby": "^4.6.0",
+        "query-string": "^6.13.1",
+        "url": "^0.11.0"
+    }
+}
