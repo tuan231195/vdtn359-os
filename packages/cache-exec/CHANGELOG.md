@@ -1,3 +1,10 @@
+# [@vdtn359/cache-exec-v1.0.2](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/cache-exec-v1.0.1...@vdtn359/cache-exec-v1.0.2) (2021-05-07)
+
+
+### Bug Fixes
+
+* **cache-exec:** clean silent logic ([3362851](https://github.com/vdtn359/vdtn359-os/commit/3362851a28a70bb4785e10f02f94a84fce4d7ce5))
+
 # [@vdtn359/cache-exec-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/cache-exec-v1.0.0...@vdtn359/cache-exec-v1.0.1) (2021-05-07)
 
 
