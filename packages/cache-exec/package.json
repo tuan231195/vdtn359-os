@@ -1,0 +1,29 @@
+{
+    "name": "@vdtn359/cache-exec",
+    "version": "0.0.0",
+    "description": "Execute and cache a command result",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/cache-exec"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "bin": {
+        "cache-exec": "dist/cli.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "devDependencies": {
+        "@types/shelljs": "^0.8.8"
+    },
+    "dependencies": {
+        "debug": "^4.3.1",
+        "fs-extra": "^10.0.0",
+        "ms": "^2.1.3",
+        "shelljs": "^0.8.4",
+        "yargs": "^17.0.1"
+    }
+}

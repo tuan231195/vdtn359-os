@@ -25,6 +25,9 @@
         },
         {
             "path": "./url/tsconfig.build.json"
+        },
+        {
+            "path": "./cache-exec/tsconfig.build.json"
         }
     ]
 }
