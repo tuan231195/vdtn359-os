@@ -54,13 +54,11 @@ export async function cacheExec(options: ExecArgs) {
 				}
 				if (skipCache !== '' && skipCache !== 'write') {
 					try {
-						if (!silent) {
-							await writeCache({
-								command,
-								temp,
-								content: stdout,
-							});
-						}
+						await writeCache({
+							command,
+							temp,
+							content: stdout,
+						});
 						resolve(stdout);
 					} catch (e) {
 						reject(e);
