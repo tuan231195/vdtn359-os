@@ -1,3 +1,10 @@
+# [@vdtn359/cache-exec-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/cache-exec-v1.0.0...@vdtn359/cache-exec-v1.0.1) (2021-05-07)
+
+
+### Bug Fixes
+
+* **cache-exec:** set default intepreter ([d87a1af](https://github.com/vdtn359/vdtn359-os/commit/d87a1af2ddad6e919367346e5ab0d02529b6403b))
+
 # @vdtn359/cache-exec-v1.0.0 (2021-05-07)
 
 
