@@ -54,7 +54,7 @@
         "@zerollup/ts-transform-paths": "1.7.12",
         "babel-plugin-tester": "9.0.1",
         "lerna": "^3.20.2",
-        "semantic-release": "17.0.4",
+        "semantic-release": "17.2.3",
         "ts-jest": "25.2.1",
         "ts-transpile": "~1.2.4",
         "ttypescript": "1.5.10",
