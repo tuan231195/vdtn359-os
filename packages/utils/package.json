@@ -2,7 +2,7 @@
     "name": "@vdtn359/utils",
     "version": "1.0.2",
     "description": "Tuan's general utils",
-    "type": "dist/index.d.ts",
+    "types": "dist/index.d.ts",
     "main": "dist/index.js",
     "files": [
         "dist"

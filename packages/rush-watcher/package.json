@@ -1,0 +1,25 @@
+{
+    "name": "@vdtn359/rush-watcher",
+    "version": "0.0.0",
+    "description": "Tool for helping with common Rush development scenarios",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "bin": {
+        "rush-watcher": "./dist/index.js"
+    },
+    "scripts": {
+        "preinstall": "mkdir -p dist && touch dist/index.js",
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "execa": "^5.1.1",
+        "@microsoft/rush-lib": "^5.47.0",
+        "batching-toposort": "^1.2.0",
+        "chalk": "^4.1.1",
+        "randoma": "^1.3.0",
+        "yargs": "^17.0.1"
+    }
+}
