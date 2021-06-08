@@ -1,3 +1,10 @@
+# [@vdtn359/utils-v1.1.0](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/utils-v1.0.2...@vdtn359/utils-v1.1.0) (2021-06-08)
+
+
+### Features
+
+* **rush-watcher:** initial release ([d9b3d79](https://github.com/vdtn359/vdtn359-os/commit/d9b3d796cb6b1229587bb93158180623d18c0554))
+
 # [@vdtn359/utils-v1.0.2](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/utils-v1.0.1...@vdtn359/utils-v1.0.2) (2020-05-02)
 
 
