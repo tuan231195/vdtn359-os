@@ -9,6 +9,9 @@
             "path": "./utils/tsconfig.build.json"
         },
         {
+            "path": "./rush-watcher/tsconfig.build.json"
+        },
+        {
             "path": "./transformer/tsconfig.build.json"
         },
         {

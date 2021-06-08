@@ -85,6 +85,7 @@
         "@vdtn359/semantic-release-monorepo": "file:packages/semantic-release-monorepo",
         "@vdtn359/package-manager-utils": "file:packages/package-manager-utils",
         "@vdtn359/url": "file:packages/url",
+        "@vdtn359/rush-watcher": "file:packages/rush-watcher",
         "babel-plugin-add-class-properties": "file:packages/babel-plugin-add-class-properties"
     }
 }
