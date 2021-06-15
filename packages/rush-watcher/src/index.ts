@@ -168,7 +168,7 @@ function startBuilding(
 		emitter.once('initial-build-done', resolve);
 		try {
 			await pr;
-			resolve();
+			resolve(null);
 		} catch (e) {
 			reject(e);
 		}

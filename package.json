@@ -42,6 +42,7 @@
         "@vdtn359/cache-exec": "file:packages/cache-exec",
         "@vdtn359/package-manager-utils": "file:packages/package-manager-utils",
         "@vdtn359/rush-watcher": "file:packages/rush-watcher",
+        "@vdtn359/rush-deploy-utils": "file:packages/rush-deploy-utils",
         "@vdtn359/semantic-release-monorepo": "file:packages/semantic-release-monorepo",
         "@vdtn359/transformer": "file:packages/transformer",
         "@vdtn359/tsc-add-class-properties": "file:packages/tsc-add-class-properties",
@@ -63,8 +64,8 @@
         "@semantic-release/release-notes-generator": "9.0.1",
         "@types/jest": "25.1.4",
         "@types/node": "^13.9.2",
-        "@typescript-eslint/eslint-plugin": "2.24.0",
-        "@typescript-eslint/parser": "2.24.0",
+        "@typescript-eslint/eslint-plugin": "^4.27.0",
+        "@typescript-eslint/parser": "^4.27.0",
         "@vdtn359/mono-install": "1.1.2",
         "@zerollup/ts-transform-paths": "1.7.12",
         "babel-plugin-tester": "9.0.1",
@@ -84,7 +85,7 @@
         "semantic-release": "^17.4.3",
         "ts-jest": "25.2.1",
         "ts-transpile": "~1.2.4",
-        "ttypescript": "1.5.10",
-        "typescript": "3.8.3"
+        "ttypescript": "^1.5.12",
+        "typescript": "^4.3.2"
     }
 }
