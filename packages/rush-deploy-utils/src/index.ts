@@ -80,7 +80,6 @@ function deploy({
 	const newHash = getDepsHash(packageName);
 
 	if (force || oldHash !== newHash) {
-		updateHash(packageName);
 		console.info(`Triggering ${script} for ${packageName}`);
 		execa(path.resolve(rushProject.projectFolder, script), {
 			cwd: rushProject.projectFolder,
@@ -88,6 +87,9 @@ function deploy({
 			env: {
 				BUILD_HASH: newHash,
 			},
+		});
+		fs.writeFileSync(buildInfoPath, newHash, {
+			encoding: 'utf-8',
 		});
 	}
 }
