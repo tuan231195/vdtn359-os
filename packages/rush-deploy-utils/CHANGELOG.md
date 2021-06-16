@@ -1,3 +1,11 @@
+# [@vdtn359/rush-deploy-utils-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.0...@vdtn359/rush-deploy-utils-v1.0.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* **rush-deploy-utils:** await for command ([a54abb6](https://github.com/vdtn359/vdtn359-os/commit/a54abb6aded3032c9f1103df5e824f66b51573d1))
+* **rush-deploy-utils:** update hash after deployment ([21605c2](https://github.com/vdtn359/vdtn359-os/commit/21605c27a183cbf315f5825187b398c1072e4746))
+
 # @vdtn359/rush-deploy-utils-v1.0.0 (2021-06-15)
 
 
