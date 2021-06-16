@@ -56,7 +56,7 @@ function getRushProject(config, packageName: string) {
 	return rushProject;
 }
 
-function deploy({
+async function deploy({
 	package: packageName,
 	force,
 	script = 'deploy.sh',
@@ -81,7 +81,7 @@ function deploy({
 
 	if (force || oldHash !== newHash) {
 		console.info(`Triggering ${script} for ${packageName}`);
-		execa(path.resolve(rushProject.projectFolder, script), {
+		await execa(path.resolve(rushProject.projectFolder, script), {
 			cwd: rushProject.projectFolder,
 			stdout: 'inherit',
 			env: {
