@@ -60,10 +60,12 @@ async function deploy({
 	package: packageName,
 	force,
 	script = 'deploy.sh',
+	git,
 }: {
 	package: string;
 	force?: boolean;
 	script?: string;
+	git?: boolean;
 }) {
 	const config = getConfig();
 	const rushProject = getRushProject(config, packageName);
@@ -81,16 +83,21 @@ async function deploy({
 
 	if (force || oldHash !== newHash) {
 		console.info(`Triggering ${script} for ${packageName}`);
-		await execa(path.resolve(rushProject.projectFolder, script), {
-			cwd: rushProject.projectFolder,
-			stdout: 'inherit',
-			env: {
-				BUILD_HASH: newHash,
-			},
-		});
-		fs.writeFileSync(buildInfoPath, newHash, {
-			encoding: 'utf-8',
-		});
+		try {
+			await execa(path.resolve(rushProject.projectFolder, script), {
+				cwd: rushProject.projectFolder,
+				stdout: 'inherit',
+				env: {
+					BUILD_HASH: newHash,
+				},
+			});
+			fs.writeFileSync(buildInfoPath, newHash, {
+				encoding: 'utf-8',
+			});
+		} catch (e) {
+			console.error(e);
+			process.exit(1);
+		}
 	}
 }
 
