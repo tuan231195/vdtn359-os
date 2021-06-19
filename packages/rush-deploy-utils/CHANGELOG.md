@@ -1,3 +1,10 @@
+# [@vdtn359/rush-deploy-utils-v1.0.2](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.1...@vdtn359/rush-deploy-utils-v1.0.2) (2021-06-19)
+
+
+### Bug Fixes
+
+* **rush-deploy-utils:** exit on error ([e358c29](https://github.com/vdtn359/vdtn359-os/commit/e358c2970ccb349c80b1cea49bf4ae4f6e91e243))
+
 # [@vdtn359/rush-deploy-utils-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.0...@vdtn359/rush-deploy-utils-v1.0.1) (2021-06-16)
 
 
