@@ -1,3 +1,10 @@
+# [@vdtn359/rush-deploy-utils-v1.0.5](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.4...@vdtn359/rush-deploy-utils-v1.0.5) (2021-06-19)
+
+
+### Bug Fixes
+
+* **rush-deploy-utils:** use join instead of resolve ([a9e89a1](https://github.com/vdtn359/vdtn359-os/commit/a9e89a19fc7b74d12178c3c3de838e8a07641654))
+
 # [@vdtn359/rush-deploy-utils-v1.0.4](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.3...@vdtn359/rush-deploy-utils-v1.0.4) (2021-06-19)
 
 
