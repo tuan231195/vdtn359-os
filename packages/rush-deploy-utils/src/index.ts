@@ -134,7 +134,7 @@ function getPackageHash(
 		}
 		return {
 			...current,
-			[path.resolve(rushProject.projectFolder, file)]: hash,
+			[path.resolve(rushProject.projectRelativeFolder, file)]: hash,
 		};
 	}, {});
 }
