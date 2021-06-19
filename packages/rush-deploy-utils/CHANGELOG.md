@@ -1,3 +1,10 @@
+# [@vdtn359/rush-deploy-utils-v1.0.4](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.3...@vdtn359/rush-deploy-utils-v1.0.4) (2021-06-19)
+
+
+### Bug Fixes
+
+* **rush-deploy-utils:** make build hash independent of project folder ([0f0cb53](https://github.com/vdtn359/vdtn359-os/commit/0f0cb531009cbcb23dce931d4858ed02608c6f7f))
+
 # [@vdtn359/rush-deploy-utils-v1.0.3](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.2...@vdtn359/rush-deploy-utils-v1.0.3) (2021-06-19)
 
 
