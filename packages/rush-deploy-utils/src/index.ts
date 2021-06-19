@@ -40,7 +40,10 @@ function getDepsHash(packageName: string) {
 
 	for (const dep of deps) {
 		const hashes = getPackageHash(config, dep);
-		for (const [file, hash] of Object.entries(hashes)) {
+		const sortedEntries = Object.entries(hashes).sort(([a], [b]) =>
+			a.localeCompare(b)
+		);
+		for (const [file, hash] of sortedEntries) {
 			md5.update(file);
 			md5.update(hash as string);
 		}
@@ -157,5 +160,5 @@ function getDependencies(
 			queue.push(dependencyProject);
 		}
 	}
-	return Object.keys(visited);
+	return Object.keys(visited).sort();
 }
