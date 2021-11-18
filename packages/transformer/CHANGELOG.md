@@ -1,3 +1,10 @@
+# [@vdtn359/transformer-v1.0.3](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/transformer-v1.0.2...@vdtn359/transformer-v1.0.3) (2021-11-18)
+
+
+### Bug Fixes
+
+* **types:** fix typings ([e085a35](https://github.com/vdtn359/vdtn359-os/commit/e085a356f756b2de9a5f6fcc15159958c57f1a7f))
+
 # [@vdtn359/transformer-v1.0.2](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/transformer-v1.0.1...@vdtn359/transformer-v1.0.2) (2020-05-02)
 
 
