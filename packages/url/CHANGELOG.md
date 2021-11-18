@@ -1,3 +1,10 @@
+# [@vdtn359/url-builder-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/url-builder-v1.0.0...@vdtn359/url-builder-v1.0.1) (2021-11-18)
+
+
+### Bug Fixes
+
+* **types:** fix typings ([e085a35](https://github.com/vdtn359/vdtn359-os/commit/e085a356f756b2de9a5f6fcc15159958c57f1a7f))
+
 # @vdtn359/url-builder-v1.0.0 (2020-09-09)
 
 
