@@ -2,7 +2,7 @@
     "name": "@vdtn359/tsc-add-class-properties",
     "version": "1.0.0",
     "description": "A typescript plugin to add class properties information to the compiled output",
-    "type": "dist/index.d.ts",
+    "types": "dist/index.d.ts",
     "main": "dist/index.js",
     "files": [
         "dist"

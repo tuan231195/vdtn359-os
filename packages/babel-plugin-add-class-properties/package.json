@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "description": "Add class properties information to each class",
     "main": "dist/index.js",
-    "type": "dist/index.d.ts",
+    "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
