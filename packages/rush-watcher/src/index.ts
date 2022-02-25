@@ -78,7 +78,7 @@ program.command(
 				projectLayer.map(async (project) => {
 					try {
 						await startBuilding(project, command);
-					} catch (e) {
+					} catch (e: any) {
 						console.error(
 							`Project ${project.packageName} failed with code ${e.exitCode}`
 						);

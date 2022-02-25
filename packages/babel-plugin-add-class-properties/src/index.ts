@@ -57,7 +57,7 @@ export default function (babel) {
 const safeGet = (fn) => {
 	try {
 		return fn();
-	} catch (e) {
+	} catch (e: any) {
 		if (e.name === 'TypeError') {
 			return null;
 		}

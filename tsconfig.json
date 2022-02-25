@@ -20,11 +20,11 @@
         "sourceMap": true,
         "plugins": [
             {
-                "transform": "@zerollup/ts-transform-paths",
+                "transform": "@ovos-media/ts-transform-paths",
                 "exclude": ["@vdtn359/*"]
             },
             {
-                "transform": "@zerollup/ts-transform-paths",
+                "transform": "@ovos-media/ts-transform-paths",
                 "exclude": ["@vdtn359/*"],
                 "afterDeclarations": true
             }
