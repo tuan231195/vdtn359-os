@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/cache-exec",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Execute and cache a command result",
     "repository": {
         "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/cache-exec"
