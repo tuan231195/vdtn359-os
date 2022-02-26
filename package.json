@@ -10,7 +10,7 @@
         "build": "ttsc -b packages",
         "test": "jest",
         "lint": "eslint .",
-        "test:coverage": "jest --coverage",
+        "test:coverage": "jest --coverage -w 25%",
         "prepare": "npm run build",
         "postinstall": "link-parent-bin > /dev/null",
         "publish": "lerna publish",
@@ -26,17 +26,18 @@
         }
     },
     "dependencies": {
+        "@vdtn359/aws-tools": "file:packages/aws-tools",
         "@vdtn359/cache-exec": "file:packages/cache-exec",
         "@vdtn359/package-manager-utils": "file:packages/package-manager-utils",
-        "@vdtn359/rush-watcher": "file:packages/rush-watcher",
         "@vdtn359/rush-deploy-utils": "file:packages/rush-deploy-utils",
+        "@vdtn359/rush-watcher": "file:packages/rush-watcher",
         "@vdtn359/semantic-release-monorepo": "file:packages/semantic-release-monorepo",
         "@vdtn359/transformer": "file:packages/transformer",
         "@vdtn359/tsc-add-class-properties": "file:packages/tsc-add-class-properties",
         "@vdtn359/url": "file:packages/url",
         "@vdtn359/utils": "file:packages/utils",
         "babel-plugin-add-class-properties": "file:packages/babel-plugin-add-class-properties",
-        "@vdtn359/aws-tools": "file:packages/aws-tools"
+        "errors": "^0.3.0"
     },
     "devDependencies": {
         "@babel/core": "^7.17.5",
@@ -44,6 +45,7 @@
         "@babel/types": "^7.17.0",
         "@commitlint/cli": "^16.2.1",
         "@commitlint/config-conventional": "^16.2.1",
+        "@ovos-media/ts-transform-paths": "1.7.18-1",
         "@semantic-release/changelog": "^6.0.1",
         "@semantic-release/commit-analyzer": "^9.0.2",
         "@semantic-release/exec": "^6.0.3",
@@ -55,7 +57,6 @@
         "@typescript-eslint/eslint-plugin": "^5.12.1",
         "@typescript-eslint/parser": "^5.12.1",
         "@vdtn359/mono-install": "1.1.2",
-        "@ovos-media/ts-transform-paths": "1.7.18-1",
         "babel-plugin-tester": "^10.1.0",
         "chokidar-cli": "^3.0.0",
         "commitizen": "^4.2.4",

@@ -8,7 +8,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "cache-exec": "./dist/cli.js"
+        "aws-tools": "./dist/cli.js"
     },
     "files": [
         "dist"
@@ -17,5 +17,10 @@
         "preinstall": "mkdir -p dist && touch dist/cli.js",
         "build": "ttsc -b tsconfig.build.json"
     },
-    "dependencies": {}
+    "dependencies": {
+        "aws-sdk": "^2.1082.0",
+        "command-exists": "^1.2.9",
+        "detect-installed": "2.0.4",
+        "error": "^10.4.0"
+    }
 }

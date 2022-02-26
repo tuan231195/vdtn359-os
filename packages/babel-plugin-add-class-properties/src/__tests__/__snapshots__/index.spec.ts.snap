@@ -1,38 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`plugin tests babel-plugin-add-class-properties add properties information: add properties information 1`] = `
-
-class A {
-    a: number;
-    b: number;
-    c: number;
-    static d: string;
-}
-
-      ↓ ↓ ↓ ↓ ↓ ↓
-
-class A {
-    static __PROPERTIES__ = ['a', 'b', 'c'];
-    static __STATIC_PROPERTIES__ = ['d'];
-}
-
-
-`;
-
-exports[`plugin tests babel-plugin-add-class-properties does nothing when there is no class: does nothing when there is no class 1`] = `
-
-import foo from './a'
-const a = 1;
-export default 'something else';
-
-      ↓ ↓ ↓ ↓ ↓ ↓
-
-const a = 1;
-export default 'something else';
-
-
-`;
-
 exports[`plugin tests unknown plugin add properties information: add properties information 1`] = `
 
 class A {

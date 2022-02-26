@@ -18,7 +18,7 @@ module.exports = {
 		'@typescript-eslint/no-use-before-define': 'off',
 		'@typescript-eslint/no-explicit-any': 'off',
 		'@typescript-eslint/no-non-null-assertion': 'off',
-		'@typescript-eslint/ban-ts-ignore': 'off',
-		'no-console': 'error',
+		'@typescript-eslint/ban-ts-comment': 'off',
+		'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
 	},
 };

@@ -23,7 +23,7 @@ jobs:
 
     test:
         docker:
-            -   image: cimg/node:12.16
+            -   image: cimg/node:16.13
         steps:
             -   attach_workspace:
                     at: .
@@ -32,13 +32,10 @@ jobs:
                     command: npm run lint
             -   run:
                     name: Test
-                    command: npm run test:coverage
-            -   store_artifacts:
-                    path: coverage
-                    destination: coverage
+                    command: npm run test
     release:
         docker:
-            -   image: cimg/node:12.16
+            -   image: cimg/node:16.13
         steps:
             -   attach_workspace:
                     at: .
