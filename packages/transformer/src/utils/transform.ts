@@ -57,7 +57,7 @@ export function toPlain(
 			continue;
 		}
 		const exposeOptions = metadata.get(key) || {};
-		const transform: Function = transformOptions.transform
+		const transform = transformOptions.transform
 			? transformOptions.transform
 			: (key, value) => value;
 		const as = exposeOptions.as || key;
@@ -107,7 +107,7 @@ export function toClass(
 
 		if (!result[key] && plainObject[as]) {
 			const value = plainObject[as];
-			const transform: Function = transformOptions.transform
+			const transform: any = transformOptions.transform
 				? transformOptions.transform
 				: (key, value) => value;
 			result[key] = value ? toClass(value, exposeOptions.type) : value;

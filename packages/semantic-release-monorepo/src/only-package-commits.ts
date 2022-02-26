@@ -78,15 +78,17 @@ const tapA = (fn) => async (x) => {
 	return x;
 };
 
-const logFilteredCommitCount = (logger) => async ({ commits }) => {
-	const { name } = await readPkg();
+const logFilteredCommitCount =
+	(logger) =>
+	async ({ commits }) => {
+		const { name } = await readPkg();
 
-	logger.log(
-		'Found %s commits for package %s since last release',
-		commits.length,
-		name
-	);
-};
+		logger.log(
+			'Found %s commits for package %s since last release',
+			commits.length,
+			name
+		);
+	};
 
 const withOnlyPackageCommits = (plugin) => async (pluginConfig, config) => {
 	const { logger } = config;

@@ -4,6 +4,9 @@
     "description": "Plugins for `semantic-release` allowing it to be used with a monorepo.",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/semantic-release-monorepo"
+    },
     "license": "MIT",
     "files": [
         "dist"

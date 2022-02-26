@@ -22,9 +22,8 @@ export async function getDependencies() {
 	const dependencies = dependenciesGraph.dependenciesOf(packageJson.name);
 
 	return dependencies.map((dependency) => {
-		const { path: dependencyPath } = dependenciesGraph.getNodeData(
-			dependency
-		);
+		const { path: dependencyPath } =
+			dependenciesGraph.getNodeData(dependency);
 		return path.relative(gitRoot, path.dirname(dependencyPath));
 	});
 }

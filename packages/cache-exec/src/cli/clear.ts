@@ -2,7 +2,7 @@ import { CommandModule } from 'yargs';
 import { clearCache } from 'src/lib';
 
 const commandModule: CommandModule<
-	{},
+	object,
 	{
 		command?: string;
 		temp?: boolean;

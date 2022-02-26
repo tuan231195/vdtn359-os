@@ -1,0 +1,21 @@
+{
+    "name": "@vdtn359/aws-tools",
+    "version": "0.0.0",
+    "description": "AWS tools",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/aws-tools"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "bin": {
+        "cache-exec": "./dist/cli.js"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "preinstall": "mkdir -p dist && touch dist/cli.js",
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {}
+}

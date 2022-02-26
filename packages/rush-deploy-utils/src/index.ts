@@ -63,12 +63,10 @@ async function deploy({
 	package: packageName,
 	force,
 	script = 'deploy.sh',
-	git,
 }: {
 	package: string;
 	force?: boolean;
 	script?: string;
-	git?: boolean;
 }) {
 	const config = getConfig();
 	const rushProject = getRushProject(config, packageName);

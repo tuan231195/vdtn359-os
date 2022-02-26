@@ -9,6 +9,7 @@
         "dev": "chokidar --silent \"packages/*/src/**/*\" --initial -c \"time ts-transpile -b packages\"",
         "build": "ttsc -b packages",
         "test": "jest",
+        "lint": "eslint .",
         "test:coverage": "jest --coverage",
         "prepare": "npm run build",
         "postinstall": "link-parent-bin > /dev/null",
@@ -34,7 +35,8 @@
         "@vdtn359/tsc-add-class-properties": "file:packages/tsc-add-class-properties",
         "@vdtn359/url": "file:packages/url",
         "@vdtn359/utils": "file:packages/utils",
-        "babel-plugin-add-class-properties": "file:packages/babel-plugin-add-class-properties"
+        "babel-plugin-add-class-properties": "file:packages/babel-plugin-add-class-properties",
+        "@vdtn359/aws-tools": "file:packages/aws-tools"
     },
     "devDependencies": {
         "@babel/core": "^7.17.5",

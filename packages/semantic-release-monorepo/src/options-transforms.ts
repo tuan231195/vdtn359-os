@@ -9,9 +9,7 @@ export const mapCommits = (fn) =>
 
 export const mapNextReleaseVersion = overA(compose(nextRelease, version));
 
-export const withOptionsTransforms = (transforms) => (plugin) => async (
-	pluginConfig,
-	config
-) => {
-	return plugin(pluginConfig, await composeP(...transforms)(config));
-};
+export const withOptionsTransforms =
+	(transforms) => (plugin) => async (pluginConfig, config) => {
+		return plugin(pluginConfig, await composeP(...transforms)(config));
+	};

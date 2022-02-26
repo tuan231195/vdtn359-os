@@ -4,6 +4,9 @@
     "description": "Tools deploying rush project",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/rush-deploy-utils"
+    },
     "files": [
         "dist"
     ],

@@ -37,6 +37,9 @@
         },
         {
             "path": "./cache-exec/tsconfig.build.json"
+        },
+        {
+            "path": "./aws-tools/tsconfig.build.json"
         }
     ]
 }

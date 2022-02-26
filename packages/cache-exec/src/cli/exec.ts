@@ -2,7 +2,7 @@ import { CommandModule } from 'yargs';
 import { cacheExec } from 'src/lib';
 
 const commandModule: CommandModule<
-	{},
+	object,
 	{
 		skipCache?: 'read' | 'write';
 		cwd?: string;

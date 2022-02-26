@@ -137,7 +137,7 @@ export class Mapper {
 			result[to] = mapping?.mapper
 				? mapping.mapper.transform(transformedValue, transformOptions)
 				: transformedValue;
-			const transform: Function = transformOptions.transform
+			const transform = transformOptions.transform
 				? transformOptions.transform
 				: (key, value) => value;
 			result[to] = transform(to, result[to]);
