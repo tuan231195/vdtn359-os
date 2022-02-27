@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/aws-tools",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "AWS tools",
     "repository": {
         "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/aws-tools"

@@ -1,3 +1,10 @@
+# [@vdtn359/aws-tools-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/aws-tools-v1.0.0...@vdtn359/aws-tools-v1.0.1) (2022-02-27)
+
+
+### Bug Fixes
+
+* **aws-tool:** fix dependencies ([e9c4fc9](https://github.com/vdtn359/vdtn359-os/commit/e9c4fc95b17bd1e62fd396140c93109da0b1e4c5))
+
 # @vdtn359/aws-tools-v1.0.0 (2022-02-26)
 
 
