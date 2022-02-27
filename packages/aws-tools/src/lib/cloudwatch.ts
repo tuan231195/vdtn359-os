@@ -7,9 +7,13 @@ export async function cloudWatchLogLookup({
 	prefix,
 	start = '5m',
 	end,
+	grep,
+	grepv,
 	region,
 }: {
 	prefix?: string;
+	grep?: string;
+	grepv?: string;
 	cache?: boolean;
 	start?: string;
 	end?: string;
@@ -21,6 +25,12 @@ export async function cloudWatchLogLookup({
 	const params = ['tail', logGroup, '-b', start, '-f'];
 	if (end) {
 		params.push('-e', end);
+	}
+	if (grep) {
+		params.push('--grep', grep);
+	}
+	if (grepv) {
+		params.push('--grepv', grepv);
 	}
 
 	spawnSync(`cw ${params.join(' ')}`, {

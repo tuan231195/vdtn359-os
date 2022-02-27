@@ -7,13 +7,31 @@ const commandModule: CommandModule<
 		prefix?: string;
 		start?: string;
 		end?: string;
+		grep?: string;
+		grepv?: string;
 		cache?: boolean;
 		region?: string;
 	}
 > = {
 	describe: 'cloudWatch command',
-	handler: async function ({ cache, region, prefix, start, end }) {
-		return cloudWatchLogLookup({ prefix, cache, region, start, end });
+	handler: async function ({
+		cache,
+		region,
+		prefix,
+		start,
+		end,
+		grep,
+		grepv,
+	}) {
+		return cloudWatchLogLookup({
+			prefix,
+			cache,
+			region,
+			start,
+			end,
+			grep,
+			grepv,
+		});
 	},
 	command: 'cw',
 	builder: {
@@ -39,6 +57,20 @@ const commandModule: CommandModule<
 			description:
 				'end of the date range e.g. 5m for 5 minutes before or UTC date time',
 			alias: 'e',
+		},
+		grep: {
+			demandOption: false,
+			nargs: 1,
+			type: 'string',
+			description: 'pattern to look for',
+			alias: 'g',
+		},
+		grepv: {
+			demandOption: false,
+			nargs: 1,
+			type: 'string',
+			description: 'invert match pattern to filter logs by',
+			alias: 'v',
 		},
 		region: {
 			demandOption: false,
