@@ -1,3 +1,10 @@
+# [@vdtn359/tsc-add-class-properties-v1.0.2](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/tsc-add-class-properties-v1.0.1...@vdtn359/tsc-add-class-properties-v1.0.2) (2022-02-26)
+
+
+### Bug Fixes
+
+* **readme:** add package url ([ee84c5d](https://github.com/vdtn359/vdtn359-os/commit/ee84c5d486c4961277aca4b56c8f38ac63f0c349))
+
 # [@vdtn359/tsc-add-class-properties-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/tsc-add-class-properties-v1.0.0...@vdtn359/tsc-add-class-properties-v1.0.1) (2021-11-18)
 
 

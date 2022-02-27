@@ -1,3 +1,10 @@
+# [@vdtn359/rush-deploy-utils-v1.0.6](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.5...@vdtn359/rush-deploy-utils-v1.0.6) (2022-02-26)
+
+
+### Bug Fixes
+
+* **readme:** add package url ([ee84c5d](https://github.com/vdtn359/vdtn359-os/commit/ee84c5d486c4961277aca4b56c8f38ac63f0c349))
+
 # [@vdtn359/rush-deploy-utils-v1.0.5](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/rush-deploy-utils-v1.0.4...@vdtn359/rush-deploy-utils-v1.0.5) (2021-06-19)
 
 
