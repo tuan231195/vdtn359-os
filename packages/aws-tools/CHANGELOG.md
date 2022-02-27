@@ -1,3 +1,10 @@
+# [@vdtn359/aws-tools-v1.1.0](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/aws-tools-v1.0.1...@vdtn359/aws-tools-v1.1.0) (2022-02-27)
+
+
+### Features
+
+* **aws-tools:** add grep ([e04aba6](https://github.com/vdtn359/vdtn359-os/commit/e04aba63121f7a9ff535d5ced9e152535e0d5eb7))
+
 # [@vdtn359/aws-tools-v1.0.1](https://github.com/vdtn359/vdtn359-os/compare/@vdtn359/aws-tools-v1.0.0...@vdtn359/aws-tools-v1.0.1) (2022-02-27)
 
 
