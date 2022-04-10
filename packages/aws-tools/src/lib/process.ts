@@ -4,6 +4,7 @@ import { checkCacheExec } from './requirements';
 
 export class Process {
 	public readonly process: ChildProcess;
+
 	public readonly command: string;
 
 	constructor(

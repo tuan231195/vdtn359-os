@@ -1,5 +1,6 @@
 export class LookupArray<T = any> {
 	private arr: Array<T>;
+
 	private set: Set<T>;
 
 	constructor(source: Array<T> = [], private allowDuplicate = true) {

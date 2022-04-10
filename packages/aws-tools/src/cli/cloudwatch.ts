@@ -14,15 +14,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 'cloudWatch command',
-	handler: async function ({
-		cache,
-		region,
-		prefix,
-		start,
-		end,
-		grep,
-		grepv,
-	}) {
+	async handler({ cache, region, prefix, start, end, grep, grepv }) {
 		return cloudWatchLogLookup({
 			prefix,
 			cache,

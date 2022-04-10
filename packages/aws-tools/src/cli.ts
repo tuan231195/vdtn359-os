@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 
-process.env.AWS_SDK_LOAD_CONFIG = 'true';
-
 import yargs from 'yargs';
+
+process.env.AWS_SDK_LOAD_CONFIG = 'true';
 
 yargs
 	.scriptName('aws-tools')

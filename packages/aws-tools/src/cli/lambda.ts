@@ -9,7 +9,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 'lambda command',
-	handler: async function ({ cache, region }) {
+	async handler({ cache, region }) {
 		return lambdaLookup({ region, cache });
 	},
 	command: 'lambda',

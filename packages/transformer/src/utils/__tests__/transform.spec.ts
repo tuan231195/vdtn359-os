@@ -1,6 +1,6 @@
-import { User } from './models/user';
 import { toClass, toPlain } from 'src/index';
 import { Book } from 'src/utils/__tests__/models/book';
+import { User } from './models/user';
 
 const sampleDate = new Date(Date.UTC(2020, 3, 30, 0, 0, 0));
 describe('toPlain', () => {

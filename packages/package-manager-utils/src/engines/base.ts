@@ -52,7 +52,7 @@ export abstract class BaseEngine implements Engine {
 	) {
 		const packageJson = this.getNormalisedPackageJson(packageJsonPath);
 		const dependencies = packageJson[type] || {};
-		const name = packageJson.name;
+		const { name } = packageJson;
 		for (const dependency of Object.keys(dependencies)) {
 			const localPath = dependencies[dependency];
 			const dependencyPackageJsonPath = path.resolve(

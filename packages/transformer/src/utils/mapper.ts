@@ -8,9 +8,13 @@ import {
 
 export class Mapper {
 	private useDefault: boolean;
+
 	private mappingCache;
+
 	private readonly source?: any;
+
 	private readonly destination?: any;
+
 	private readonly mappings: Map<
 		string,
 		{
@@ -40,13 +44,11 @@ export class Mapper {
 			for (const [key, value] of destinationMetadata.entries()) {
 				const nestedMeta = getMetadataFromType(value.type);
 				let as = value.as || key;
-				let fromType = undefined;
+				let fromType;
 				if (sourceMetadata) {
 					const foundEntry = Array.from(
 						sourceMetadata.entries()
-					).find(([, value]) => {
-						return value.as === as;
-					});
+					).find(([, value]) => value.as === as);
 					if (foundEntry) {
 						as = foundEntry[0];
 						fromType = foundEntry[1].type;

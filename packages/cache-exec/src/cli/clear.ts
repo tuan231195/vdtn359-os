@@ -10,7 +10,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 'clear cache command',
-	handler: async function ({ command, temp, home }) {
+	async handler({ command, temp, home }) {
 		return clearCache({ command, home, temp });
 	},
 	command: 'clear',

@@ -76,7 +76,7 @@ export class PnpmEngine extends BaseEngine {
 			return;
 		}
 		const packageLock = readYml(packageLockPath);
-		delete packageLock['importers'];
+		delete packageLock.importers;
 		packageLock.dependencies = packageLock.dependencies || '';
 		packageLock.specifiers = packageLock.specifiers || '';
 		writeYml(packageLockPath, packageLock);

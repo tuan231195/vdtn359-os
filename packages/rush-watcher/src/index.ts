@@ -107,15 +107,18 @@ function transformer(color, prefix) {
 				chunk.includes('Built at:') ||
 				// API
 				chunk.includes('[nodemon]') ||
-				//Next
+				// Next
 				chunk.includes('[ ready ]')
 			) {
 				emitter.emit('initial-build-done');
 			}
 
-			let lines = chunk.split('\n').filter((line, index, array) => {
-				return !(line === '' && array[index - 1] === '');
-			});
+			let lines = chunk
+				.split('\n')
+				.filter(
+					(line, index, array) =>
+						!(line === '' && array[index - 1] === '')
+				);
 			lines = lines
 				.map((line) => `${chalk.hex(color)(prefix)}: ${line}`)
 				.join('\n');

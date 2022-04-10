@@ -10,7 +10,7 @@ export function Exclude(options: ExcludeOptions = {}): PropertyDecorator {
 		toClass: !!options.groups,
 		excludeIf: options.groups
 			? (key, value, exposeOptions, transformOptions) => {
-					const groups = transformOptions.groups;
+					const { groups } = transformOptions;
 					if (!groups) {
 						return false;
 					}

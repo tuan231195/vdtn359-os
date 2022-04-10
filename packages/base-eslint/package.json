@@ -1,0 +1,23 @@
+{
+    "name": "@vdtn359/eslint-config",
+    "version": "0.0.0",
+    "description": "Base eslint config",
+    "main": "index.js",
+    "peerDependencies": {
+        "eslint": ">= 8"
+    },
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/base-eslint"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.9.1",
+        "@typescript-eslint/parser": "^5.9.1",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-airbnb-typescript": "^16.1.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-import-resolver-typescript": "^2.5.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-sonarjs": "^0.11.0"
+    }
+}

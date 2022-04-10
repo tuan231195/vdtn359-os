@@ -10,7 +10,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 'ssm command',
-	handler: async function ({ path, cache, region }) {
+	async handler({ path, cache, region }) {
 		return ssmLookup({ path, cache, region });
 	},
 	command: 'ssm',

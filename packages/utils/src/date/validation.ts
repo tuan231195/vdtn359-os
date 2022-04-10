@@ -5,7 +5,7 @@ export function isValidDate(date) {
 }
 
 export function isDateInFormat(dateString, format) {
-	if (!(dateString.length === format.length)) {
+	if (dateString.length !== format.length) {
 		return false;
 	}
 	const date = parse(dateString, format, new Date());

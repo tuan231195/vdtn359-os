@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { TransformOptions } from 'src/utils';
+
 export const METADATA_KEY = '__TRANSFORMER_METADATA__';
 
 export type ExposeOptions = {
@@ -18,7 +19,7 @@ export type ExposeOptions = {
 
 export function ExposeAll(): ClassDecorator {
 	return (target) => {
-		const properties = target['__PROPERTIES__'] || [];
+		const properties = (target as any).__PROPERTIES__ || [];
 		if (properties.length) {
 			const metadata = Reflect.getMetadata(METADATA_KEY, target);
 			for (const property of properties) {
@@ -46,7 +47,7 @@ const defaultOptions: ExposeOptions = {
 export function Expose(options: ExposeOptions = {}): PropertyDecorator {
 	options = { ...defaultOptions, ...options };
 	return (target: Record<string, any>, property: string | symbol) => {
-		if (typeof property != 'string') {
+		if (typeof property !== 'string') {
 			return;
 		}
 		const metadataTarget = target.constructor || target;

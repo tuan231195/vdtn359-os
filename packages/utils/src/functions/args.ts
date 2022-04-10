@@ -4,12 +4,13 @@ export const getArguments = function (func) {
 	// Split the arguments string into an array comma delimited.
 	return args
 		.split(',')
-		.map((arg) => {
+		.map((arg) =>
 			// Ensure no inline comments are parsed and trim the whitespace.
-			return arg.replace(/\/\*.*\*\//, '').trim();
-		})
-		.filter(function (arg) {
-			// Ensure no undefineds are added.
-			return arg;
-		});
+			arg.replace(/\/\*.*\*\//, '').trim()
+		)
+		.filter(
+			(arg) =>
+				// Ensure no undefineds are added.
+				arg
+		);
 };

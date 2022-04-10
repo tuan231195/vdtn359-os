@@ -6,6 +6,7 @@ export class Book {
 		this.name = alias;
 		this.nameUpperCase = alias.toUpperCase();
 	}
+
 	@Expose({
 		as: 'alias',
 	})

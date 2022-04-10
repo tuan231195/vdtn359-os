@@ -1,5 +1,5 @@
 import pluginTester from 'babel-plugin-tester';
-import plugin from '../';
+import plugin from '..';
 
 describe('plugin tests', () => {
 	pluginTester({

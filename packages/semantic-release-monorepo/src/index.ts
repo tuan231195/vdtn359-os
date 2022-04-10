@@ -1,9 +1,9 @@
 import readPkg from 'read-pkg';
 import { compose } from 'ramda';
+import { wrapStep } from 'semantic-release-plugin-decorators';
 import withOnlyPackageCommits from './only-package-commits';
 import versionToGitTag from './version-to-git-tag';
 import logPluginVersion from './log-plugin-version';
-import { wrapStep } from 'semantic-release-plugin-decorators';
 import {
 	mapNextReleaseVersion,
 	withOptionsTransforms,
@@ -32,5 +32,5 @@ const generateNotes = wrapStep(
 module.exports = {
 	analyzeCommits,
 	generateNotes,
-	tagFormat: readPkg.sync().name + '-v${version}',
+	tagFormat: `${readPkg.sync().name}-v\${version}`,
 };

@@ -1,8 +1,8 @@
-import { User } from './models/user';
 import { Mapper } from 'src/index';
 import { Book } from 'src/utils/__tests__/models/book';
-import { Custom, Inner } from './models/custom';
 import { CustomDto, InnerDto } from 'src/utils/__tests__/models/custom.dto';
+import { Custom, Inner } from './models/custom';
+import { User } from './models/user';
 
 const sampleDate = new Date(Date.UTC(2020, 3, 30, 0, 0, 0));
 describe('Mapper', () => {

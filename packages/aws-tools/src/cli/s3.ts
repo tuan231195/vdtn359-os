@@ -9,7 +9,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 's3 command',
-	handler: async function ({ bucket, cache }) {
+	async handler({ bucket, cache }) {
 		return s3Lookup({ bucket, cache });
 	},
 	command: 's3',

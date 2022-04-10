@@ -22,6 +22,7 @@
         "@rushstack/package-deps-hash": "^3.0.40",
         "@microsoft/rush-lib": "^5.47.0",
         "@pnpm/link-bins": "^6.0.4",
+        "@pnpm/logger": "^4.0.0",
         "yargs": "^17.0.1"
     }
 }

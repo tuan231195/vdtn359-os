@@ -12,5 +12,16 @@
     ],
     "scripts": {
         "build": "ttsc -b tsconfig.build.json"
+    },
+    "devDependencies": {
+        "babel-plugin-tester": "^10.1.0",
+        "@babel/core": "^7.17.9",
+        "@babel/preset-typescript": "^7.16.7"
+    },
+    "dependencies": {
+        "@babel/types": "^7.17.0"
+    },
+    "peerDependencies": {
+        "@babel/preset-typescript": "^7.16.7"
     }
 }

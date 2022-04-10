@@ -13,7 +13,7 @@ const commandModule: CommandModule<
 	}
 > = {
 	describe: 'execute and cache command',
-	handler: async function ({ skipCache, cwd, silent, command, temp, ttl }) {
+	async handler({ skipCache, cwd, silent, command, temp, ttl }) {
 		return cacheExec({
 			cwd,
 			silent,

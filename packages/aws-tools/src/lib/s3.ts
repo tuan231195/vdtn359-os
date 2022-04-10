@@ -1,6 +1,7 @@
 import { Process } from 'src/lib/process';
 import { checkFzf } from 'src/lib/requirements';
 import AWS from 'aws-sdk';
+
 const s3 = new AWS.S3();
 
 export async function s3Lookup({

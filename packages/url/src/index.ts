@@ -55,11 +55,17 @@ type URLInput = {
 
 export class URLBuilder {
 	protocol: string;
+
 	auth: { username: string; password: string } | null;
+
 	port: number | null;
+
 	hostname: string | null;
+
 	hash: KeyValueFormat;
+
 	query: KeyValueFormat;
+
 	pathname: string;
 
 	constructor(inputURL: string | URLInput) {
@@ -96,9 +102,8 @@ export class URLBuilder {
 	get host() {
 		if (this.port) {
 			return `${this.hostname || ''}:${this.port}`;
-		} else {
-			return this.hostname || '';
 		}
+		return this.hostname || '';
 	}
 
 	get path() {

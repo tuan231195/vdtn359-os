@@ -1,8 +1,8 @@
 import { NpmEngine, PnpmEngine } from '@vdtn359/package-manager-utils';
 import fs from 'fs';
 import pkgUp from 'pkg-up';
-import { getRoot } from './git-utils';
 import path from 'path';
+import { getRoot } from './git-utils';
 
 export async function getDependencies() {
 	const packagePath = await pkgUp();

@@ -29,9 +29,8 @@ export async function cacheExec(options: ExecArgs) {
 					process.stdout.write(cacheContent.content);
 				}
 				return cacheContent;
-			} else {
-				log(`Cache is not valid for command ${command}`);
 			}
+			log(`Cache is not valid for command ${command}`);
 		}
 	}
 	return new Promise((resolve, reject) => {
