@@ -2,7 +2,7 @@ import path from 'path';
 import { DEPENDENCY_TYPES } from 'src/engines/constants';
 import { resolveLocalVersion } from 'src/lib/package';
 import { BaseEngine } from 'src/engines/base';
-import findup from 'find-up';
+import * as findup from 'find-up';
 import { read, readYml, writeYml } from 'src/lib/files';
 import fg from 'fast-glob';
 import { execSync } from 'src/lib/child_process';

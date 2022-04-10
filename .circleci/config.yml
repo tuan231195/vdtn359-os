@@ -6,14 +6,10 @@ orbs:
 jobs:
     build:
         working_directory: ~/app
-        executor:
-            name: node/default
-            tag: '16.13'
+        docker:
+            -   image: gplane/pnpm:6.32-node16-alpine
         steps:
             - checkout
-            -   run:
-                    name: install-npm
-                    command: npm install -g pnpm@6.30.1
             -   restore_cache:
                     key: dependency-cache-{{ checksum "pnpm-lock.yaml" }}
             -   run:
@@ -24,10 +20,14 @@ jobs:
                     paths:
                         - node_modules
                             - .
+            -   persist_to_workspace:
+                    root: .
+                    paths:
+                        - .
 
     test:
         docker:
-            -   image: cimg/node:16.13
+            -   image: gplane/pnpm:6.32-node16-alpine
         steps:
             -   attach_workspace:
                     at: .
@@ -39,7 +39,7 @@ jobs:
                     command: npm run test
     release:
         docker:
-            -   image: cimg/node:16.13
+            -   image: gplane/pnpm:6.32-node16-alpine
         steps:
             -   attach_workspace:
                     at: .
@@ -48,7 +48,6 @@ jobs:
                     command: |
                         printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
                         npm config set access public
-                        mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
                         npm run release
 workflows:
     version: 2

@@ -10,11 +10,11 @@ importers:
       '@changesets/cli': ^2.22.0
       '@commitlint/cli': ^16.2.1
       '@commitlint/config-conventional': ^16.2.1
-      '@ovos-media/ts-transform-paths': 1.7.18-1
       '@types/jest': ^27.4.1
       '@types/node': ^17.0.21
       '@typescript-eslint/eslint-plugin': ^5.12.1
       '@typescript-eslint/parser': ^5.12.1
+      '@vdtn359/base-typescript': workspace:*
       babel-plugin-tester: ^10.1.0
       chokidar-cli: ^3.0.0
       commitizen: ^4.2.4
@@ -34,6 +34,7 @@ importers:
       ts-node: ^10.7.0
       ttypescript: ^1.5.13
       typescript: ^4.5.5
+      typescript-transform-paths: ^3.3.1
     dependencies:
       errors: 0.3.0
     devDependencies:
@@ -43,11 +44,11 @@ importers:
       '@changesets/cli': 2.22.0
       '@commitlint/cli': 16.2.3
       '@commitlint/config-conventional': 16.2.1
-      '@ovos-media/ts-transform-paths': 1.7.18-1_typescript@4.6.3
       '@types/jest': 27.4.1
       '@types/node': 17.0.23
       '@typescript-eslint/eslint-plugin': 5.18.0_0dd9be2ba5ed9805045f3fec8be848f5
       '@typescript-eslint/parser': 5.18.0_eslint@8.13.0+typescript@4.6.3
+      '@vdtn359/base-typescript': link:packages/base-typescript
       babel-plugin-tester: 10.1.0_@babel+core@7.17.9
       chokidar-cli: 3.0.0
       commitizen: 4.2.4
@@ -66,6 +67,7 @@ importers:
       ts-node: 10.7.0_ee885bc7281b682b6adbed6ae09ee090
       ttypescript: 1.5.13_ts-node@10.7.0+typescript@4.6.3
       typescript: 4.6.3
+      typescript-transform-paths: 3.3.1_typescript@4.6.3
 
   packages/aws-tools:
     specifiers:
@@ -114,12 +116,14 @@ importers:
     specifiers:
       dependency-graph: 0.9.0
       fast-glob: 3.2.2
+      find-up: ^5.0.0
       fs-extra: 9.0.0
       is-installed: 2.0.1
       yaml: 1.9.2
     dependencies:
       dependency-graph: 0.9.0
       fast-glob: 3.2.2
+      find-up: 5.0.0
       fs-extra: 9.0.0
       is-installed: 2.0.1
       yaml: 1.9.2
@@ -156,7 +160,7 @@ importers:
 
   packages/semantic-release-monorepo:
     specifiers:
-      '@vdtn359/package-manager-utils': file:../package-manager-utils
+      '@vdtn359/package-manager-utils': workspace:*
       debug: ^3.1.0
       execa: ^0.8.0
       p-limit: ^1.2.0
@@ -1569,15 +1573,6 @@ packages:
     deprecated: Package renamed to @opentelemetry/api, see https://github.com/open-telemetry/opentelemetry-js
     dev: false
 
-  /@ovos-media/ts-transform-paths/1.7.18-1_typescript@4.6.3:
-    resolution: {integrity: sha512-5uYtraYSWg1klaMYus3ouCOUUNzcI40pS0NCaw0PhoaPTimVfT3MV061ZLYR/4F14THqyofMjmCNcHgFrBX3AA==}
-    peerDependencies:
-      typescript: '>=3.7.2'
-    dependencies:
-      '@zerollup/ts-helpers': 1.7.18_typescript@4.6.3
-      typescript: 4.6.3
-    dev: true
-
   /@pnpm/constants/5.0.0:
     resolution: {integrity: sha512-VhUGKR5jvAtoBHgHAB3Kfc9g42ocVUws9iOafGAQ+xjR8uLokUCReXDpLXRRtrqw8N8yyh3gLNpCJs/AYadA1g==}
     engines: {node: '>=12.17'}
@@ -2337,15 +2332,6 @@ packages:
   /@yarnpkg/lockfile/1.0.2:
     resolution: {integrity: sha512-MqJ00WXw89ga0rK6GZkdmmgv3bAsxpJixyTthjcix73O44pBqotyU2BejBkLuIsaOBI6SEu77vAnSyLe5iIHkw==}
     dev: false
-
-  /@zerollup/ts-helpers/1.7.18_typescript@4.6.3:
-    resolution: {integrity: sha512-S9zN+y+i5yN/evfWquzSO3lubqPXIsPQf6p9OiPMpRxDx/0totPLF39XoRw48Dav5dSvbIE8D2eAPpXXJxvKwg==}
-    peerDependencies:
-      typescript: '>=3.7.2'
-    dependencies:
-      resolve: 1.22.0
-      typescript: 4.6.3
-    dev: true
 
   /@zkochan/cmd-shim/5.2.2:
     resolution: {integrity: sha512-uNWpBESHNlerKPs34liL43S14y1j3G39dpSf/wzkyP+axOzqvQTr4i+Nz/4shyS5FIL4fTi/ejHCDMT0ZneNWQ==}
@@ -4033,7 +4019,6 @@ packages:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
-    dev: true
 
   /find-versions/4.0.0:
     resolution: {integrity: sha512-wgpWy002tA+wgmO27buH/9KzyEOQnKsG/R0yrcjPT9BOFm0zRBVQbZ95nRGXWMywS8YR5knRbpohio0bcJABxQ==}
@@ -5661,7 +5646,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
-    dev: true
 
   /lodash.capitalize/4.2.1:
     resolution: {integrity: sha1-+CbJtOKoUR2E46yinbBeGk87cqk=}
@@ -6356,7 +6340,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yocto-queue: 0.1.0
-    dev: true
 
   /p-locate/2.0.0:
     resolution: {integrity: sha1-IKAQOyIqcMj9OcwuWAaA893l7EM=}
@@ -6383,7 +6366,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-limit: 3.1.0
-    dev: true
 
   /p-map/2.1.0:
     resolution: {integrity: sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==}
@@ -6478,7 +6460,6 @@ packages:
   /path-exists/4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
-    dev: true
 
   /path-is-absolute/1.0.1:
     resolution: {integrity: sha1-F0uSaHNVNP+8es5r9TpanhtcX18=}
@@ -7848,6 +7829,15 @@ packages:
     dependencies:
       is-typedarray: 1.0.0
 
+  /typescript-transform-paths/3.3.1_typescript@4.6.3:
+    resolution: {integrity: sha512-c+8Cqd2rsRtTU68rJI0NX/OtqgBDddNs1fIxm1nCNyhn0WpoyqtpUxc1w9Ke5c5kgE4/OT5xYbKf2cf694RYEg==}
+    peerDependencies:
+      typescript: '>=3.6.5'
+    dependencies:
+      minimatch: 3.1.2
+      typescript: 4.6.3
+    dev: true
+
   /typescript/4.6.3:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
     engines: {node: '>=4.2.0'}
@@ -8302,7 +8292,6 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
 
   /z-schema/5.0.3:
     resolution: {integrity: sha512-sGvEcBOTNum68x9jCpCVGPFJ6mWnkD0YxOcddDlJHRx3tKdB2q8pCHExMVZo/AV/6geuVJXG7hljDaWG8+5GDw==}
