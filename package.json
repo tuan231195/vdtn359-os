@@ -12,8 +12,9 @@
         "test:coverage": "jest --coverage -w 25%",
         "prepare": "npm run build",
         "postinstall": "link-parent-bin > /dev/null",
-        "prerelease": "npm run prepare",
-        "release": "pnpm publish -r"
+        "prerelease": "npm run prepare && npx changeset version && npx changeset tag",
+        "release": "pnpm publish -r",
+        "postrelease": "git push --follow-tags"
     },
     "config": {
         "commitizen": {

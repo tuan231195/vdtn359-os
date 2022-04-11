@@ -39,8 +39,11 @@ jobs:
                     command: npm run test
     release:
         docker:
-            -   image: gplane/pnpm:6.32-node16-alpine
+            -   image: gplane/pnpm:6.32-node16-bullseye
         steps:
+            -   add_ssh_keys:
+                    fingerprints:
+                        - "5e:92:8a:61:f2:e8:b9:28:81:05:7c:7c:ee:27:13:93"
             -   attach_workspace:
                     at: .
             -   run:
@@ -48,6 +51,9 @@ jobs:
                     command: |
                         printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
                         npm config set access public
+                        git config --global user.email vdtn359@gmail.com
+                        git config --global user.name "Tuan Nguyen"
+                        mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
                         npm run release
 workflows:
     version: 2
