@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/base-typescript",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Base typescript config",
     "repository": {
         "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/base-typescript"
