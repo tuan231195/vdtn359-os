@@ -15,7 +15,7 @@ module.exports = (dirname) => {
 		{}
 	);
 	return {
-		roots: ['<rootDir>/src', '<rootDir>/examples'],
+		roots: ['<rootDir>/src'],
 		clearMocks: true,
 		preset: 'ts-jest',
 		moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

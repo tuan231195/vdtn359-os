@@ -21,10 +21,13 @@
         "axios": "^0.27.2",
         "axios-better-stacktrace": "^2.1.2",
         "convict": "^6.2.3",
+        "fastify-swagger": "^5.2.0",
+        "lodash": "^4.17.21",
         "morgan": "^1.10.0",
         "dayjs": "^1.11.2",
         "rxjs": "^7.5.5",
-        "fastify-swagger": "^5.2.0"
+        "uuid": "^8.3.2",
+        "winston": "^3.7.2"
     },
     "devDependencies": {
         "@nestjs/common": "^8.0.0",
