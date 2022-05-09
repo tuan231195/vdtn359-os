@@ -1,0 +1,46 @@
+{
+    "name": "@vdtn359/nestjs-bootstrap",
+    "version": "0.0.0",
+    "description": "Nestjs bootstrap",
+    "types": "dist/index.d.ts",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/nestjs-bootstrap"
+    },
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "@nestjs-steroids/async-context": "^2.0.0",
+        "@nestjs/platform-fastify": "^8.4.4",
+        "@nestjs/terminus": "^8.0.3",
+        "@nestjs/swagger": "^5.2.1",
+        "axios": "^0.27.2",
+        "axios-better-stacktrace": "^2.1.2",
+        "convict": "^6.2.3",
+        "morgan": "^1.10.0",
+        "dayjs": "^1.11.2",
+        "rxjs": "^7.5.5",
+        "fastify-swagger": "^5.2.0"
+    },
+    "devDependencies": {
+        "@nestjs/common": "^8.0.0",
+        "@nestjs/core": "^8.0.0",
+        "@nestjs/testing": "^8.4.4",
+        "@types/convict": "^6.1.1",
+        "class-transformer": "0.4.0",
+        "class-validator": "^0.13.2",
+        "reflect-metadata": "^0.1.13",
+        "supertest": "^6.2.3"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^8.0.0",
+        "@nestjs/core": "^8.0.0",
+        "reflect-metadata": "^0.1.13",
+        "class-transformer": "0.4.0",
+        "class-validator": "^0.13.2"
+    }
+}

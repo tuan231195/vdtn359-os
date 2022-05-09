@@ -36,6 +36,9 @@
             "path": "./url/tsconfig.build.json"
         },
         {
+            "path": "./nestjs-bootstrap/tsconfig.build.json"
+        },
+        {
             "path": "./cache-exec/tsconfig.build.json"
         },
         {
