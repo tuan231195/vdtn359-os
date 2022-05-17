@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+    db:
+        platform: linux/amd64
+        image: mysql:5.7
+        restart: always
+        environment:
+            MYSQL_DATABASE: 'test'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_PASSWORD: 'password'
+        ports:
+            - '13306:3306'
+        expose:
+            - '13306'
+        volumes:
+            - my-db:/var/lib/mysql
+            - ./docker/mysql/my.cnf:/etc/my.cnf
+            - ./docker/mysql/init:/docker-entrypoint-initdb.d
+volumes:
+    my-db:

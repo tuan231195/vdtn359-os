@@ -1,0 +1,27 @@
+{
+    "name": "@vdtn359/binlog-publisher",
+    "version": "1.0.1",
+    "description": "Data structure",
+    "types": "dist/index.d.ts",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/data-structure"
+    },
+    "main": "dist/index.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "start": "ts-node -r tsconfig-paths/register -T src/test.ts",
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "aws-sdk": "^2.1130.0",
+        "exit-hook": "^2.2.1",
+        "rxjs": "^7.5.5",
+        "@vlasky/zongji": "^0.5.8"
+    },
+    "devDependencies": {
+        "@types/mysql": "^2.15.21",
+        "@types/zongji": "^0.5.0"
+    }
+}

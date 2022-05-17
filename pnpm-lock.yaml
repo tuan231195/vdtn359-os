@@ -110,6 +110,23 @@ importers:
     dependencies:
       '@tsconfig/node14': 1.0.1
 
+  packages/binlog-publisher:
+    specifiers:
+      '@types/mysql': ^2.15.21
+      '@types/zongji': ^0.5.0
+      '@vlasky/zongji': ^0.5.8
+      aws-sdk: ^2.1130.0
+      exit-hook: ^2.2.1
+      rxjs: ^7.5.5
+    dependencies:
+      '@vlasky/zongji': 0.5.8
+      aws-sdk: 2.1130.0
+      exit-hook: 2.2.1
+      rxjs: 7.5.5
+    devDependencies:
+      '@types/mysql': 2.15.21
+      '@types/zongji': 0.5.0
+
   packages/cache-exec:
     specifiers:
       '@types/shelljs': ^0.8.8
@@ -2420,6 +2437,12 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
+  /@types/mysql/2.15.21:
+    resolution: {integrity: sha512-NPotx5CVful7yB+qZbWtXL2fA4e7aEHkihHLjklc6ID8aq7bhguHgeIoC1EmSNTAuCgI6ZXrjt2ZSaXnYX0EUg==}
+    dependencies:
+      '@types/node': 17.0.23
+    dev: true
+
   /@types/node-fetch/1.6.9:
     resolution: {integrity: sha512-n2r6WLoY7+uuPT7pnEtKJCmPUGyJ+cbyBR8Avnu4+m1nzz7DwBVuyIvvlBzCZ/nrpC7rIgb3D6pNavL7rFEa9g==}
     dependencies:
@@ -2489,6 +2512,12 @@ packages:
     resolution: {integrity: sha512-T8Yc9wt/5LbJyCaLiHPReJa0kApcIgJ7Bn735GjItUfh08Z1pJvu8QZqb9s+mMvKV6WUQRV7K2R46YbjMXTTJw==}
     dependencies:
       '@types/yargs-parser': 21.0.0
+    dev: true
+
+  /@types/zongji/0.5.0:
+    resolution: {integrity: sha512-3rB2AjL/fqbxSBPzuNh1PwQvUy4a83RWIxnIjGdRpzfYECafBCesgj8JTPCPAur+z9iQFqcVNoVbk9Y2We44kg==}
+    dependencies:
+      '@types/mysql': 2.15.21
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.18.0_0dd9be2ba5ed9805045f3fec8be848f5:
@@ -2615,6 +2644,25 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.18.0
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@vlasky/mysql/2.18.5:
+    resolution: {integrity: sha512-gbYMGeZGjH+o5Hn+HLpZPcGfhEUBTw5gHS2o1ovhEMO54ogviUXzq+Xdr1du3JfiNKwAWDAvI4ZO0jt7z/5sUA==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      bignumber.js: 9.0.1
+      readable-stream: 2.3.7
+      safe-buffer: 5.2.1
+      sqlstring: 2.3.2
+    dev: false
+
+  /@vlasky/zongji/0.5.8:
+    resolution: {integrity: sha512-ed3fzmOJqHUD8hf/Mb/S07j0jWiseLGtiv/LvwDgE5WoC/TEfpXyiolNDgPBYtKEKGbR0KssCY4WJU/P9Bi0Dw==}
+    engines: {node: '>= 8.0'}
+    dependencies:
+      '@vlasky/mysql': 2.18.5
+      big-integer: 1.6.48
+      iconv-lite: 0.6.2
     dev: false
 
   /@yarnpkg/lockfile/1.0.2:
@@ -2898,6 +2946,21 @@ packages:
       xml2js: 0.4.19
     dev: false
 
+  /aws-sdk/2.1130.0:
+    resolution: {integrity: sha512-bkLXuOpHphKvaMAbbmqaHQtYsGICmoyEJdLlNOTCq7dH0uKxARcZEj01ebCifsJJ/fOrPt8EbNUHPu4/DOueDA==}
+    engines: {node: '>= 10.0.0'}
+    dependencies:
+      buffer: 4.9.2
+      events: 1.1.1
+      ieee754: 1.1.13
+      jmespath: 0.16.0
+      querystring: 0.2.0
+      sax: 1.2.1
+      url: 0.10.3
+      uuid: 3.3.2
+      xml2js: 0.4.19
+    dev: false
+
   /axios-better-stacktrace/2.1.2_axios@0.27.2:
     resolution: {integrity: sha512-/ikpK5W7UhCAdl9pQss1vpTfLtOQpbv8edRZ2a9wWSux2dnGmqjVHkFsMKnyllysxm046C016lqGjUgGNECcag==}
     peerDependencies:
@@ -3037,6 +3100,15 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       is-windows: 1.0.2
+
+  /big-integer/1.6.48:
+    resolution: {integrity: sha512-j51egjPa7/i+RdiRuJbPdJ2FIUYYPhvYLjzoYbcMMm62ooO6F94fETG4MTs46zPAF9Brs04OajboA/qTGuz78w==}
+    engines: {node: '>=0.6'}
+    dev: false
+
+  /bignumber.js/9.0.1:
+    resolution: {integrity: sha512-IdZR9mh6ahOBv/hYGiXyVuyCetmGJhtYkqLBpTStdhEGjegpPlUawydyaF3pbIOFynJTpllEs+NP+CS9jKFLjA==}
+    dev: false
 
   /bin-links/2.3.0:
     resolution: {integrity: sha512-JzrOLHLwX2zMqKdyYZjkDgQGT+kHDkIhv2/IK2lJ00qLxV4TmFoHi8drDBb6H5Zrz1YfgHkai4e2MGPqnoUhqA==}
@@ -4410,6 +4482,11 @@ packages:
       signal-exit: 3.0.7
       strip-final-newline: 2.0.0
 
+  /exit-hook/2.2.1:
+    resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
+    engines: {node: '>=6'}
+    dev: false
+
   /exit/0.1.2:
     resolution: {integrity: sha1-BjJjj42HfMghB9MKD/8aF8uhzQw=}
     engines: {node: '>= 0.8.0'}
@@ -5163,6 +5240,13 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       safer-buffer: 2.1.2
+
+  /iconv-lite/0.6.2:
+    resolution: {integrity: sha512-2y91h5OpQlolefMPmUlivelittSWy0rP+oYVpn6A7GwVHNE8AWzoYOBNmlwks3LobaJxgHCYZAnyNo2GgpNRNQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
 
   /ieee754/1.1.13:
     resolution: {integrity: sha512-4vf7I2LYV/HaWerSo3XmlMkp5eZ83i+/CDluXi/IGTs/O1sejBNhTtnxzmRZfvOUqj7lZjqHkeTvpgSFDlWZTg==}
@@ -8191,6 +8275,11 @@ packages:
   /sprintf-js/1.0.3:
     resolution: {integrity: sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=}
 
+  /sqlstring/2.3.2:
+    resolution: {integrity: sha512-vF4ZbYdKS8OnoJAWBmMxCQDkiEBkGQYU7UZPtL8flbDRSNkhaXvRJ279ZtI6M+zDaQovVU4tuRgzK5fVhvFAhg==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /ssri/8.0.1:
     resolution: {integrity: sha512-97qShzy1AiyxvPNIkLWoGua7xoQzzPjQ0HAH4B0rWKo7SZ6USuPcrUiAFrws0UH8RrbWmgq3LMTObhPIHbbBeQ==}
     engines: {node: '>= 8'}
@@ -9152,7 +9241,7 @@ packages:
   /xml2js/0.4.19:
     resolution: {integrity: sha512-esZnJZJOiJR9wWKMyuvSE1y6Dq5LCuJanqhxslH2bxM6duahNZ+HMpCLhBQGZkbX6xRf8x1Y2eJlgt2q3qo49Q==}
     dependencies:
-      sax: 1.2.1
+      sax: 1.2.4
       xmlbuilder: 9.0.7
     dev: false
 
