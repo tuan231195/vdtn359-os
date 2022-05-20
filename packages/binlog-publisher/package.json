@@ -18,6 +18,8 @@
         "aws-sdk": "^2.1130.0",
         "exit-hook": "^2.2.1",
         "rxjs": "^7.5.5",
+        "lodash": "^4.17.21",
+        "uuid": "^8.3.2",
         "@vlasky/zongji": "^0.5.8"
     },
     "devDependencies": {

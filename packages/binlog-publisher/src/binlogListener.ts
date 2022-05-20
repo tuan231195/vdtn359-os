@@ -1,8 +1,19 @@
 import Zongji from '@vlasky/zongji';
 import type BinlogListenerType from 'zongji';
 import exitHook from 'exit-hook';
-import { Observer, Subject } from 'rxjs';
-import { ListenerOptions, RecordMapping } from 'src/options';
+import {
+	bufferTime,
+	catchError,
+	concatMap,
+	defer,
+	EMPTY,
+	filter,
+	retry,
+	Subject,
+	throwError,
+	timer,
+} from 'rxjs';
+import { ListenerOptions, ProcessingOptions, RecordMapping } from 'src/options';
 import { Position } from './positionTracker';
 
 export class BinlogListener {
@@ -19,8 +30,51 @@ export class BinlogListener {
 		this.init(listenerOptions);
 	}
 
-	public subscribe(observer: Partial<Observer<any>>) {
-		this.subject.subscribe(observer);
+	public handleBatch(
+		processingOptions: ProcessingOptions = {},
+		handler: (items: any[]) => Promise<void>
+	) {
+		const {
+			bufferCount: count = 10,
+			bufferTime: time = 200,
+			maxRetryCount = 0,
+			retryDelay = 0,
+		} = processingOptions;
+		return this.subject
+			.pipe(
+				bufferTime(time, null, count),
+				filter((items) => items.length > 0),
+				concatMap((items) => {
+					return defer(() => handler(items).then(() => items)).pipe(
+						retry({
+							delay: (err, retryCount) => {
+								console.warn(
+									`Attempt ${retryCount}: Failed to process binlog events`,
+									err
+								);
+								if (
+									maxRetryCount === -1 ||
+									retryCount < maxRetryCount
+								) {
+									return timer(retryDelay * retryCount);
+								}
+
+								return throwError(err);
+							},
+						}),
+						catchError(() => {
+							console.error(
+								`Discarding ${items.length} failed events`
+							);
+							// ignore the error and continue
+							return EMPTY;
+						})
+					);
+				})
+			)
+			.subscribe((items) => {
+				console.info(`Processed ${items.length} items`);
+			});
 	}
 
 	private init(listenerOptions: ListenerOptions) {
@@ -87,19 +141,35 @@ export class BinlogListener {
 				'writerows',
 				'updaterows',
 				'deleterows',
+				'rotate',
 			],
 		});
 	}
 
 	private transformEvent(evt: Zongji.Event) {
 		const eventName = evt.getEventName();
-		if (eventName === 'tablemap') {
+		if (eventName === 'tablemap' || eventName === 'rotate') {
 			return null;
 		}
+		const { filename, position } = evt._zongji.options;
 		return {
-			eventName,
+			eventName: BinlogListener.getEventName(eventName),
 			rows: evt.rows.map((row) => this.transformRow(evt, row)),
+			position: { filename, position },
 		};
+	}
+
+	static getEventName(eventName) {
+		if (eventName === 'writerows') {
+			return 'INSERT';
+		}
+		if (eventName === 'updaterows') {
+			return 'UPDATE';
+		}
+		if (eventName === 'deleterows') {
+			return 'DELETE';
+		}
+		throw new Error('unknown event');
 	}
 
 	private transformRow(evt: Zongji.Event, row: any) {

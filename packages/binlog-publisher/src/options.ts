@@ -1,34 +1,38 @@
 import { AtLeastOne } from 'src/types';
 import { ConnectionConfig } from 'mysql';
+import { ClientConfiguration as S3ClientConfiguration } from 'aws-sdk/clients/s3';
+import { ClientConfiguration as SnsClientConfiguration } from 'aws-sdk/clients/sns';
+import { ClientConfiguration as SqsClientConfiguration } from 'aws-sdk/clients/sqs';
+import { ClientConfiguration as KinesisClientConfiguration } from 'aws-sdk/clients/kinesis';
 
 export type RecordMapping = Record<
 	string,
 	boolean | Record<string, boolean | Record<string, boolean>>
 >;
 
-export interface S3StorageOptions {
+export type S3StorageOptions = S3ClientConfiguration & {
 	bucketName: string;
 	keyName: string;
-}
+};
 
 export interface StorageOptions {
 	s3: S3StorageOptions;
 }
 
-export interface SnsPublishOptions {
+export type SnsPublishOptions = SnsClientConfiguration & {
 	topic: string;
-	region?: string;
-}
+};
 
-export interface SqsPublishOptions {
-	queueName: string;
-	region?: string;
-}
+export type SqsPublishOptions = SqsClientConfiguration & {
+	queueUrl: string;
+	messageGroupKey?: string;
+	messageDeduplicationKey?: string;
+};
 
-export interface KinesisPublishOptions {
+export type KinesisPublishOptions = KinesisClientConfiguration & {
 	streamName: string;
-	region?: string;
-}
+	partitionKey: string;
+};
 
 export type PublishOptions = AtLeastOne<{
 	sns: SnsPublishOptions;
@@ -42,8 +46,17 @@ export interface ListenerOptions {
 	startAtEnd?: boolean;
 }
 
+export interface ProcessingOptions {
+	bufferTime?: number;
+	bufferCount?: number;
+	blocking?: boolean;
+	maxRetryCount?: number;
+	retryDelay?: number;
+}
+
 export interface BootstrapOptions {
-	subscriber: PublishOptions;
+	processing?: ProcessingOptions;
+	publisher: PublishOptions;
 	listener: ListenerOptions & ConnectionConfig;
 	storage?: StorageOptions;
 }
