@@ -3,6 +3,7 @@ import { BootstrapOptions } from 'src/options';
 import { Position, PositionTracker } from 'src/positionTracker';
 import exitHook from 'exit-hook';
 import { getBinlogPublisher } from 'src/binlogPublisher';
+import { BinlogProcessor } from 'src/binlogProcessor';
 
 export const bootstrap = async (options: BootstrapOptions) => {
 	let positionTracker: PositionTracker | null = null;
@@ -28,18 +29,13 @@ export const bootstrap = async (options: BootstrapOptions) => {
 
 	const binlogListener = new BinlogListener(options.listener);
 	binlogListener.start(position ?? undefined);
-	const subscription = binlogListener.handleBatch(
+	const binlogProcessor = new BinlogProcessor(
 		options.processing,
-		async (items) => {
-			await binlogPublisher.publishItems(items);
-			if (positionTracker) {
-				const lastItemPosition = items[items.length - 1]?.position;
-				if (lastItemPosition) {
-					await positionTracker.commit(lastItemPosition);
-				}
-			}
-		}
+		binlogListener,
+		binlogPublisher,
+		positionTracker
 	);
+	const subscription = binlogProcessor.start();
 
 	exitHook(() => {
 		subscription.unsubscribe();

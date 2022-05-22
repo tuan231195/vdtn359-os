@@ -19,19 +19,23 @@ export interface StorageOptions {
 	s3: S3StorageOptions;
 }
 
+export type KeyExtractor = string | ((item: any) => string);
+
 export type SnsPublishOptions = SnsClientConfiguration & {
 	topic: string;
+	messageGroupKey?: KeyExtractor;
+	messageDeduplicationKey?: KeyExtractor;
 };
 
 export type SqsPublishOptions = SqsClientConfiguration & {
 	queueUrl: string;
-	messageGroupKey?: string;
-	messageDeduplicationKey?: string;
+	messageGroupKey?: KeyExtractor;
+	messageDeduplicationKey?: KeyExtractor;
 };
 
 export type KinesisPublishOptions = KinesisClientConfiguration & {
 	streamName: string;
-	partitionKey: string;
+	partitionKey?: KeyExtractor;
 };
 
 export type PublishOptions = AtLeastOne<{

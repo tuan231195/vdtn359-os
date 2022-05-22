@@ -2,22 +2,27 @@ import { bootstrap } from './bootstrap';
 
 bootstrap({
 	publisher: {
-		/* SQS
-			sqs: {
-				region: 'ap-southeast-2',
-				queueUrl:
-					'http://localhost:4566/000000000000/direct-queue-destination',
-				credentials: {
-					accessKeyId: 'accessKeyId',
-					secretAccessKey: 'secretAccessKey',
-				},
+		// sqs: {
+		// 	region: 'ap-southeast-2',
+		// 	queueUrl:
+		// 		'http://localhost:4566/000000000000/direct-queue-destination',
+		// },
+		kinesis: {
+			region: 'ap-southeast-2',
+			streamName: 'direct-kinesis-destination',
+			endpoint: 'http://localhost:4566',
+			partitionKey: (item) => {
+				if (Math.random() < 0.2) {
+					return 1;
+				}
+				return item.after.id.toString();
 			},
-		*/
-		sns: {
+		},
+		/*sns: {
 			region: 'ap-southeast-2',
 			endpoint: 'http://localhost:4566',
 			topic: 'arn:aws:sns:ap-southeast-2:000000000000:direct-sns-destination',
-		},
+		},*/
 	},
 	processing: {
 		maxRetryCount: 2,
