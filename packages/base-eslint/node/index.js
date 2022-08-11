@@ -7,6 +7,12 @@ module.exports = {
 			plugins: ['jest'],
 			extends: ['plugin:jest/recommended'],
 		},
+		{
+			files: ['**/*.js'],
+			rules: {
+				'global-require': 0,
+			},
+		},
 	],
 	extends: [
 		'eslint:recommended',
