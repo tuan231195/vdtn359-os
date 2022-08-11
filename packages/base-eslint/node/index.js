@@ -1,6 +1,13 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
 	plugins: ['@typescript-eslint', 'sonarjs', 'prettier'],
+	overrides: [
+		{
+			files: ['**/*.spec.(t|j)sx?', '**/*.test.(t|j)sx?'],
+			plugins: ['jest'],
+			extends: ['plugin:jest/recommended'],
+		},
+	],
 	extends: [
 		'eslint:recommended',
 		'airbnb-base',
@@ -20,9 +27,7 @@ module.exports = {
 		'no-plusplus': 0,
 		'@typescript-eslint/no-var-requires': 0,
 		'@typescript-eslint/no-non-null-assertion': 0,
-		'@typescript-eslint/return-await': 0,
 		'import/prefer-default-export': 0,
-		'@typescript-eslint/no-explicit-any': 0,
 		'class-methods-use-this': 0,
 		'prettier/prettier': 'error',
 		'@typescript-eslint/ban-ts-comment': 0,
