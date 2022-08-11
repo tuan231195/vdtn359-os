@@ -1,0 +1,12 @@
+{
+	"name": "@vdtn359/prettier-config",
+	"version": "0.0.0",
+	"description": "Base prettier config",
+	"main": ".prettierrc.json",
+	"repository": {
+		"url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/prettier-config"
+	},
+	"peerDependencies": {
+		"prettier": "^2.7.1"
+	}
+}
