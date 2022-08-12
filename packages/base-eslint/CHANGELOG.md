@@ -1,5 +1,11 @@
 # @vdtn359/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+-   9a993c6: add jest config
+
 ## 1.1.0
 
 ### Minor Changes
