@@ -1,0 +1,19 @@
+{
+    "name": "@vdtn359/transformer",
+    "version": "1.0.4",
+    "description": "Tuan's transformer utils",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/transformer"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "reflect-metadata": "0.1.13"
+    }
+}
