@@ -15,6 +15,9 @@
             "path": "./rush-watcher/tsconfig.build.json"
         },
         {
+            "path": "./workspace-info/tsconfig.build.json"
+        },
+        {
             "path": "./rush-deploy-utils/tsconfig.build.json"
         },
         {

@@ -1,0 +1,23 @@
+{
+    "name": "@vdtn359/workspace-info",
+    "version": "0.0.0",
+    "description": "yarn workspace info implementation for yarn v2 berry, lerna and npm workspaces",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "bin": "dist/bin.js",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "keywords": [],
+    "dependencies": {
+        "@npmcli/map-workspaces": "^0.0.0-pre.1",
+        "@npmcli/name-from-folder": "^1.0.1",
+        "glob": "^7.1.6",
+        "minimatch": "^3.0.4",
+        "read-package-json-fast": "^1.2.1",
+        "yargs": "^15.4.1"
+    }
+}

@@ -5,6 +5,9 @@
     "description": "Tuan's open source project",
     "license": "ISC",
     "author": "Tuan Nguyen <vdtn359@gmail.com>",
+    "workspaces": [
+        "packages/**"
+    ],
     "scripts": {
         "build": "ttsc -b packages",
         "test": "jest",
