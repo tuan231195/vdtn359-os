@@ -49,6 +49,9 @@
         },
         {
             "path": "./aws-tools/tsconfig.build.json"
+        },
+        {
+            "path": "./circleci-pipeline-builder/tsconfig.build.json"
         }
     ]
 }

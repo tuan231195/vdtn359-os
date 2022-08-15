@@ -1,155 +1,98 @@
-// @ts-ignore
-import { Plugin } from 'release-it';
-import path from 'path';
-import { getWorkspaceInfo, WorkspaceInfo } from '@vdtn359/workspace-info';
-import * as fs from 'fs';
+import YAML from 'yaml';
 
-export default class DepsPlugin extends Plugin {
-	config: any;
-	options: any;
-	log: any;
+export class CPipeline {
+	constructor(
+		readonly version: string = '2.1',
+		readonly workflowVersion: string = '2'
+	) {
+		this.properties = {
+			version: version,
+			workflows: {
+				version: workflowVersion,
+			},
+			jobs: {},
+		};
+	}
+	private readonly properties: any;
 
-	async bump(version) {
-		const {
-			outFile = 'deps.json',
-			versionFile,
-			hash,
-			workspacePath = process.cwd(),
-			packageName,
-		} = this.options;
+	addWorkflow(workflow: CWorkflow) {
+		this.properties.workflows[workflow.name] = workflow.toJson();
+		return this;
+	}
 
-		const allWorkspaces = await getWorkspaceInfo({
-			cwd: workspacePath,
-			skipDev: true,
-			includePeer: true,
+	addJob(job: CJob) {
+		this.properties.jobs[job.name] = job.toJson();
+		return this;
+	}
+
+	addOrb(name: string, version: string) {
+		this.properties.orbs = this.properties.orbs || {};
+		this.properties.orbs[name] = version;
+	}
+
+	toJson() {
+		return this.properties;
+	}
+}
+
+export class CWorkflow {
+	private readonly properties: any = {
+		jobs: [],
+	};
+
+	constructor(readonly name: string) {}
+
+	prop(name: string, value: any) {
+		this.properties[name] = value;
+		return this;
+	}
+
+	addSingleLineJob(name: string) {
+		this.properties.jobs.push(name);
+		return this;
+	}
+
+	addMultilineJob(name: string, value: any) {
+		this.properties.jobs.push({
+			[name]: value,
 		});
+		return this;
+	}
 
-		if (versionFile) {
-			await this.writeVersionAndHash({
-				version,
-				versionFile,
-				hash,
-				allWorkspaces,
-				packageName,
-			});
-		}
-		await this.writeDeps({
-			version,
-			outFile,
-			allWorkspaces,
-			packageName,
+	toJson() {
+		return this.properties;
+	}
+}
+
+export class CJob {
+	private readonly properties: any = {
+		steps: [],
+	};
+
+	constructor(readonly name: string) {}
+
+	prop(name: string, value: any) {
+		this.properties[name] = value;
+		return this;
+	}
+
+	addSinglelineStep(script: string) {
+		this.properties.steps.push(script);
+		return this;
+	}
+
+	addMultilineStep(script: string, value: any) {
+		this.properties.steps.push({
+			[script]: value,
 		});
+		return this;
 	}
 
-	private async writeVersionAndHash({
-		version,
-		versionFile,
-		allWorkspaces,
-		packageName,
-		hash: hashFn = () => undefined,
-	}: {
-		version: string;
-		versionFile: string;
-		allWorkspaces: WorkspaceInfo;
-		packageName: string;
-		hash: any;
-	}) {
-		const { isDryRun } = this.config;
-		const hash = await hashFn({ version, allWorkspaces, packageName });
-		this.log.exec(
-			`Writing version ${packageName}@${version}#${
-				hash || ''
-			} to ${versionFile}`,
-			isDryRun
-		);
-		if (!isDryRun) {
-			await fs.promises.writeFile(
-				versionFile,
-				JSON.stringify({
-					version,
-					hash,
-				}),
-				{
-					encoding: 'utf8',
-				}
-			);
-		}
+	toJson() {
+		return this.properties;
 	}
+}
 
-	private async writeDeps({
-		version,
-		outFile,
-		allWorkspaces,
-		packageName,
-	}: {
-		version: string;
-		outFile: string;
-		allWorkspaces: WorkspaceInfo;
-		packageName: string;
-	}) {
-		const { isDryRun } = this.config;
-
-		const workspaceDependents = this.getPackageDependents(
-			packageName,
-			allWorkspaces
-		);
-
-		await Promise.all(
-			workspaceDependents.map(async (workspaceDependent) => {
-				const workspacePackage = allWorkspaces[workspaceDependent];
-				const outFilePath = path.resolve(
-					workspacePackage.location,
-					outFile
-				);
-				this.log.exec(
-					`Writing version ${packageName}@${version} to ${outFilePath}`,
-					isDryRun
-				);
-
-				if (!isDryRun) {
-					let currentDeps: Record<string, string> = {};
-					const fileExists = !!(await fs.promises
-						.stat(outFilePath)
-						.catch(() => null));
-					if (fileExists) {
-						currentDeps = JSON.parse(
-							await fs.promises.readFile(outFilePath, {
-								encoding: 'utf8',
-							})
-						);
-					}
-					currentDeps[packageName] = version;
-					await fs.promises.writeFile(
-						outFilePath,
-						JSON.stringify(currentDeps),
-						{
-							encoding: 'utf8',
-						}
-					);
-				}
-			})
-		);
-	}
-
-	private getPackageDependents(
-		packageName: string,
-		workspaceInfo: WorkspaceInfo
-	): string[] {
-		const workspacePackage = workspaceInfo[packageName];
-
-		if (!workspacePackage) {
-			return;
-		}
-
-		return Array.from(
-			new Set([
-				...workspacePackage.directWorkspaceDependents,
-				...workspacePackage.directWorkspaceDependents
-					.map((name) =>
-						this.getPackageDependents(name, workspaceInfo)
-					)
-					.flat(),
-			])
-		);
-	}
+export function toYaml(pipeline: CPipeline) {
+	return YAML.stringify(pipeline.toJson());
 }

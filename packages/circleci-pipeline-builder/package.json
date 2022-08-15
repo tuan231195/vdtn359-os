@@ -1,11 +1,10 @@
 {
-    "name": "@vdtn359/transformer",
-    "version": "1.0.4",
-    "description": "Tuan's transformer utils",
+    "name": "@vdtn359/circleci-pipeline-builder",
+    "version": "0.0.0",
     "types": "dist/index.d.ts",
     "main": "dist/index.js",
     "repository": {
-        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/transformer"
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/circleci-pipeline-builder"
     },
     "files": [
         "dist"
@@ -14,6 +13,6 @@
         "build": "ttsc -b tsconfig.build.json"
     },
     "dependencies": {
-        "reflect-metadata": "0.1.13"
+        "yaml": "^2.1.1"
     }
 }

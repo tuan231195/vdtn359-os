@@ -160,6 +160,12 @@ importers:
     devDependencies:
       '@types/shelljs': 0.8.11
 
+  packages/circleci-pipeline-builder:
+    specifiers:
+      yaml: ^2.1.1
+    dependencies:
+      yaml: 2.1.1
+
   packages/data-structure:
     specifiers: {}
 
@@ -12395,6 +12401,11 @@ packages:
     engines: {node: '>= 6'}
     dependencies:
       '@babel/runtime': 7.17.9
+    dev: false
+
+  /yaml/2.1.1:
+    resolution: {integrity: sha512-o96x3OPo8GjWeSLF+wOAbrPfhFOGY0W00GNaxCDv+9hkcDJEnev1yh8S7pgHF0ik6zc8sQLuL8hjHjJULZp8bw==}
+    engines: {node: '>= 14'}
     dev: false
 
   /yargs-parser/13.1.2:
