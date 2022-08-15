@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig",
+    "compilerOptions": {
+        "lib": ["es2020", "dom"],
+        "composite": true,
+        "declaration": true,
+        "baseUrl": ".",
+        "outDir": "dist",
+        "rootDir": "src",
+        "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
+        "paths": {
+            "src/*": ["./src/*"]
+        }
+    },
+    "exclude": ["**/node_modules", "dist"],
+    "include": ["src/**/*"]
+}

@@ -1,0 +1,22 @@
+{
+    "name": "@vdtn359/release-it-deps-plugin",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "keywords": [],
+    "peerDpendencies": {
+        "release-it": "^15"
+    },
+    "dependencies": {
+        "@vdtn359/workspace-info": "workspace:*"
+    },
+    "devDependencies": {
+        "release-it": "^15.3.0"
+    }
+}
