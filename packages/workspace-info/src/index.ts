@@ -10,6 +10,7 @@ type WorkspacePackage = {
 	location: string;
 	version: string;
 	directWorkspaceDependencies: { name: string; type: string }[];
+	directWorkspaceDependents: string[];
 };
 
 export type WorkspaceInfo = {
@@ -48,35 +49,32 @@ export async function getWorkspaceInfo({
 						includePeer,
 						packageJSON: currentPackageJson,
 					}).filter((x) => packagesMap[x.name]),
+					directWorkspaceDependents: [],
 				},
 			};
 		})
 	);
 
-	return Object.assign({}, ...workspaceInfos);
-}
+	const allWorkspaces = Object.assign({}, ...workspaceInfos);
 
-// {
-//     '@ryancavanaugh/folder-pkg2': {
-//         location: 'packages/folder/pkg2',
-//         workspaceDependencies: ['@ryancavanaugh/pkg1'],
-//     },
-//     '@ryancavanaugh/pkg1': {
-//         location: 'packages/pkg1',
-//         workspaceDependencies: [],
-//     },
-//     '@ryancavanaugh/pkg2': {
-//         location: 'packages/pkg2',
-//         workspaceDependencies: [
-//             '@ryancavanaugh/folder-pkg2',
-//             '@ryancavanaugh/pkg1',
-//         ],
-//     },
-//     '@ryancavanaugh/pkg3': {
-//         location: 'packages/pkg3',
-//         workspaceDependencies: [
-//             '@ryancavanaugh/pkg1',
-//             '@ryancavanaugh/pkg2',
-//         ],
-//     },
-// }
+	for (const workspaceInfo of workspaceInfos) {
+		const [name, workspacePackage] = Object.entries(workspaceInfo)[0];
+		const directDependencies =
+			workspacePackage.directWorkspaceDependencies.map(
+				({ name }) => name
+			);
+		for (const directDependency of directDependencies) {
+			if (
+				!allWorkspaces[
+					directDependency
+				].directWorkspaceDependents.includes(name)
+			) {
+				allWorkspaces[directDependency].directWorkspaceDependents.push(
+					name
+				);
+			}
+		}
+	}
+
+	return allWorkspaces;
+}

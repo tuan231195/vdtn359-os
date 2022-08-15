@@ -18,6 +18,9 @@
             "path": "./workspace-info/tsconfig.build.json"
         },
         {
+            "path": "./release-it-deps-plugin/tsconfig.build.json"
+        },
+        {
             "path": "./rush-deploy-utils/tsconfig.build.json"
         },
         {
