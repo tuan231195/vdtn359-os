@@ -1,5 +1,11 @@
 # @vdtn359/release-it-deps-plugin
 
+## 1.0.3
+
+### Patch Changes
+
+-   e4aa480: fix dry run
+
 ## 1.0.2
 
 ### Patch Changes
