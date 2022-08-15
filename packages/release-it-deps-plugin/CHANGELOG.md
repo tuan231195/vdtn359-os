@@ -1,5 +1,11 @@
 # @vdtn359/release-it-deps-plugin
 
+## 1.0.1
+
+### Patch Changes
+
+-   bc841ae: fix plugin files
+
 ## 1.0.0
 
 ### Major Changes
