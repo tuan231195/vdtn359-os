@@ -11,29 +11,71 @@ export default class DepsPlugin extends Plugin {
 
 	async bump(version) {
 		const {
-			outfile = 'deps.json',
+			outFile = 'deps.json',
+			versionFile = 'version.json',
+			hash,
 			workspacePath = process.cwd(),
 			packageName,
 		} = this.options;
-
-		if (outfile) {
-			await this.writeDeps(version, outfile, workspacePath, packageName);
-		}
-	}
-
-	private async writeDeps(
-		version: string,
-		outfile: string,
-		workspacePath: string,
-		packageName: string
-	) {
-		const { isDryRun } = this.config;
 
 		const allWorkspaces = await getWorkspaceInfo({
 			cwd: workspacePath,
 			skipDev: true,
 			includePeer: true,
 		});
+
+		await this.writeVersionAndHash({
+			version,
+			versionFile,
+			hash,
+			allWorkspaces,
+			packageName,
+		});
+		await this.writeDeps({
+			version,
+			outFile,
+			allWorkspaces,
+			packageName,
+		});
+	}
+
+	private async writeVersionAndHash({
+		version,
+		versionFile,
+		allWorkspaces,
+		packageName,
+		hash: hashFn = () => undefined,
+	}: {
+		version: string;
+		versionFile: string;
+		allWorkspaces: WorkspaceInfo;
+		packageName: string;
+		hash: any;
+	}) {
+		await fs.promises.writeFile(
+			versionFile,
+			JSON.stringify({
+				version,
+				hash: hashFn({ version, allWorkspaces, packageName }),
+			}),
+			{
+				encoding: 'utf8',
+			}
+		);
+	}
+
+	private async writeDeps({
+		version,
+		outFile,
+		allWorkspaces,
+		packageName,
+	}: {
+		version: string;
+		outFile: string;
+		allWorkspaces: WorkspaceInfo;
+		packageName: string;
+	}) {
+		const { isDryRun } = this.config;
 
 		const workspaceDependents = this.getPackageDependents(
 			packageName,
@@ -45,7 +87,7 @@ export default class DepsPlugin extends Plugin {
 				const workspacePackage = allWorkspaces[workspaceDependent];
 				const outFilePath = path.resolve(
 					workspacePackage.location,
-					outfile
+					outFile
 				);
 				this.log.exec(
 					`Writing version ${packageName}@${version} to ${outFilePath}`,
