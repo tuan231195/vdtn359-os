@@ -12,7 +12,7 @@ export default class DepsPlugin extends Plugin {
 	async bump(version) {
 		const {
 			outFile = 'deps.json',
-			versionFile = 'version.json',
+			versionFile,
 			hash,
 			workspacePath = process.cwd(),
 			packageName,
@@ -24,13 +24,15 @@ export default class DepsPlugin extends Plugin {
 			includePeer: true,
 		});
 
-		await this.writeVersionAndHash({
-			version,
-			versionFile,
-			hash,
-			allWorkspaces,
-			packageName,
-		});
+		if (versionFile) {
+			await this.writeVersionAndHash({
+				version,
+				versionFile,
+				hash,
+				allWorkspaces,
+				packageName,
+			});
+		}
 		await this.writeDeps({
 			version,
 			outFile,
