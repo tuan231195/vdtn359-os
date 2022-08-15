@@ -52,16 +52,26 @@ export default class DepsPlugin extends Plugin {
 		packageName: string;
 		hash: any;
 	}) {
-		await fs.promises.writeFile(
-			versionFile,
-			JSON.stringify({
-				version,
-				hash: hashFn({ version, allWorkspaces, packageName }),
-			}),
-			{
-				encoding: 'utf8',
-			}
+		const { isDryRun } = this.config;
+		const hash = await hashFn({ version, allWorkspaces, packageName });
+		this.log.exec(
+			`Writing version ${packageName}@${version}#${
+				hash || ''
+			} to ${versionFile}`,
+			isDryRun
 		);
+		if (!isDryRun) {
+			await fs.promises.writeFile(
+				versionFile,
+				JSON.stringify({
+					version,
+					hash,
+				}),
+				{
+					encoding: 'utf8',
+				}
+			);
+		}
 	}
 
 	private async writeDeps({
