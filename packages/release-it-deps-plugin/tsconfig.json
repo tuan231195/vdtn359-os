@@ -3,6 +3,7 @@
     "compilerOptions": {
         "lib": ["es2020", "dom"],
         "composite": true,
+        "module": "ES6",
         "declaration": true,
         "baseUrl": ".",
         "outDir": "dist",

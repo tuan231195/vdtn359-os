@@ -4,7 +4,7 @@ import path from 'path';
 import { getWorkspaceInfo, WorkspaceInfo } from '@vdtn359/workspace-info';
 import * as fs from 'fs';
 
-export class DepsPlugin extends Plugin {
+export default class DepsPlugin extends Plugin {
 	config: any;
 	options: any;
 	log: any;
@@ -48,7 +48,7 @@ export class DepsPlugin extends Plugin {
 					outfile
 				);
 				this.log.exec(
-					`Writing version ${packageName}/${version} to ${outFilePath}`,
+					`Writing version ${packageName}@${version} to ${outFilePath}`,
 					isDryRun
 				);
 
