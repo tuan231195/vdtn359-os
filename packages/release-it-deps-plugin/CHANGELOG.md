@@ -1,5 +1,11 @@
 # @vdtn359/release-it-deps-plugin
 
+## 1.0.2
+
+### Patch Changes
+
+-   2d6a6f6: add hash support
+
 ## 1.0.1
 
 ### Patch Changes
