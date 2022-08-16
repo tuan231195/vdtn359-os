@@ -20,6 +20,11 @@ export class CPipeline {
 		return this;
 	}
 
+	prop(name: string, value: any) {
+		this.properties[name] = value;
+		return this;
+	}
+
 	addJob(job: CJob) {
 		this.properties.jobs[job.name] = job.toJson();
 		return this;
