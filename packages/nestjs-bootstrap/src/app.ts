@@ -5,13 +5,27 @@ import morgan from 'morgan';
 
 import {
 	AllExceptionsFilter,
-	ValidationPipe,
+	BOOTSTRAP_OPTIONS_TOKEN,
+	ContextInterceptor,
 	RootLogger,
 	TRACE_ID,
-	ContextInterceptor,
-	BOOTSTRAP_OPTIONS_TOKEN,
+	ValidationPipe,
 } from './modules/core';
-import { BootstrapOptions } from 'src/modules/core/interface';
+import { BootstrapOptions, SwaggerOptions } from 'src/modules/core/interface';
+
+function setupSwagger(
+	app: INestApplication,
+	swagger: SwaggerOptions,
+	version: string
+) {
+	const config = new DocumentBuilder()
+		.setTitle(swagger?.title ?? '')
+		.setDescription(swagger?.description ?? '')
+		.setVersion(version)
+		.build();
+	const document = SwaggerModule.createDocument(app, config);
+	SwaggerModule.setup('doc', app, document);
+}
 
 export const setupApp = async (app: INestApplication) => {
 	const bootstrapOptions: BootstrapOptions = app.get(BOOTSTRAP_OPTIONS_TOKEN);
@@ -22,13 +36,7 @@ export const setupApp = async (app: INestApplication) => {
 		type: VersioningType.URI,
 	});
 
-	const config = new DocumentBuilder()
-		.setTitle(swagger?.title ?? '')
-		.setDescription(swagger?.description ?? '')
-		.setVersion(version)
-		.build();
-	const document = SwaggerModule.createDocument(app, config);
-	SwaggerModule.setup('doc', app, document);
+	setupSwagger(app, swagger, version);
 
 	const validationPipe = app.get(ValidationPipe);
 	const contextInterceptor = app.get(ContextInterceptor);

@@ -11,15 +11,15 @@
         "dist"
     ],
     "scripts": {
-        "build": "ttsc -b tsconfig.build.json"
+        "build": "ttsc -b tsconfig.build.json",
+        "start": "ts-node -r tsconfig-paths/register -T examples/main.ts"
     },
     "dependencies": {
         "@nestjs-steroids/async-context": "^2.0.0",
         "@nestjs/platform-fastify": "^8.4.4",
         "@nestjs/terminus": "^8.0.3",
+        "@nestjs/mapped-types": "^1.2.0",
         "@nestjs/swagger": "^5.2.1",
-        "axios": "^0.27.2",
-        "axios-better-stacktrace": "^2.1.2",
         "convict": "^6.2.3",
         "fastify-swagger": "^5.2.0",
         "lodash": "^4.17.21",
@@ -27,7 +27,8 @@
         "dayjs": "^1.11.2",
         "rxjs": "^7.5.5",
         "uuid": "^8.3.2",
-        "winston": "^3.7.2"
+        "winston": "^3.7.2",
+        "winston-console-format": "^1.0.8"
     },
     "devDependencies": {
         "@nestjs/common": "^8.0.0",

@@ -1,2 +1,2 @@
-export * from './exception.filter';
-export * from './validation.pipe';
+export * from './exception';
+export * from './validation';

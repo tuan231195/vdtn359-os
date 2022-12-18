@@ -2,7 +2,7 @@
     "extends": "@vdtn359/base-typescript/tsconfig.transform.json",
     "compilerOptions": {
         "strict": true,
-        "strictNullChecks": false,
+        "strictNullChecks": true,
         "strictPropertyInitialization": false,
         "noImplicitAny": false
     }

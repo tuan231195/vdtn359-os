@@ -74,7 +74,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 				errors = errors.message;
 			}
 		} else {
-			errors = { message, code: GenericErrorCodes.InternalServerError };
+			errors = { message, code: GenericErrorCodes.INTERNAL_SERVER_ERROR };
 		}
 
 		if (!Array.isArray(errors)) {
@@ -82,7 +82,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 		}
 
 		errors = errors.map((err: any) => {
-			const code = err.code ?? GenericErrorCodes.InternalServerError;
+			const code = err.code ?? GenericErrorCodes.INTERNAL_SERVER_ERROR;
 			return {
 				...err,
 				message: err.message ?? message,

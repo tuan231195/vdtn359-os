@@ -1,8 +1,9 @@
 import 'reflect-metadata';
 import { NestjsBootstrapModule } from '../src';
 import { config } from './config';
-import { HelloController } from './hello.controller';
+import { SimpleController } from './simple/simple.controller';
 import { HelloService } from './hello.service';
+import { ComplexController } from './complex/complex.controller';
 
 @NestjsBootstrapModule({
 	bootstrapOptions: {
@@ -14,7 +15,7 @@ import { HelloService } from './hello.service';
 		name: 'application-name',
 		config,
 	},
-	controllers: [HelloController],
+	controllers: [SimpleController, ComplexController],
 	providers: [HelloService],
 })
 export class AppModule {}

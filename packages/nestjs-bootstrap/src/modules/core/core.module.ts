@@ -1,9 +1,9 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { AsyncContextModule } from '@nestjs-steroids/async-context';
 import { ContextInterceptor } from './middlewares';
-import { axios, RequestLogger, RootLogger } from './services';
+import { RequestLogger, RootLogger } from './services';
 import { ValidationPipe } from './filters';
-import { AXIOS_TOKEN, BOOTSTRAP_OPTIONS_TOKEN, CONFIG_TOKEN } from './tokens';
+import { BOOTSTRAP_OPTIONS_TOKEN, CONFIG_TOKEN } from './tokens';
 import { BootstrapOptions } from 'src/modules/core/interface';
 
 @Module({})
@@ -14,7 +14,6 @@ export class CoreModule {
 			global: true,
 			exports: [
 				CONFIG_TOKEN,
-				AXIOS_TOKEN,
 				BOOTSTRAP_OPTIONS_TOKEN,
 				RootLogger,
 				RequestLogger,
@@ -22,10 +21,6 @@ export class CoreModule {
 				ContextInterceptor,
 			],
 			providers: [
-				{
-					provide: AXIOS_TOKEN,
-					useValue: axios,
-				},
 				{
 					provide: CONFIG_TOKEN,
 					useValue: bootstrapOptions.config,

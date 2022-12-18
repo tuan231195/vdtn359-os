@@ -1,6 +1,9 @@
 import { createLogger, format, transports } from 'winston';
+import { consoleFormat } from 'winston-console-format';
 
-const { combine, timestamp, colorize, json } = format;
+const { combine, timestamp, colorize, padLevels, json } = format;
+
+const isColorizedLogEnabled = process.env.ENABLE_COLORIZED_LOG === 'true';
 
 const loggerFormat = format((info) => {
 	const traceId = info.traceId ? ` TraceId: ${info.traceId}` : '';
@@ -15,12 +18,21 @@ const loggerFormat = format((info) => {
 
 let customFormat = combine(timestamp(), loggerFormat(), json());
 
-if (process.env.ENABLE_COLORIZED_LOG === 'true') {
+if (isColorizedLogEnabled) {
 	customFormat = combine(
 		timestamp(),
 		loggerFormat(),
 		colorize({ all: true }),
-		json()
+		padLevels(),
+		consoleFormat({
+			showMeta: true,
+			metaStrip: ['timestamp', 'name', 'traceId'],
+			inspectOptions: {
+				depth: 5,
+				colors: true,
+				breakLength: 120,
+			},
+		})
 	);
 }
 
@@ -28,7 +40,7 @@ export const logger = createLogger({
 	format: customFormat,
 	transports: [
 		new transports.Console({
-			level: process.env.LOG_LEVEL || 'info',
+			level: process.env.LOG_LEVEL ?? 'info',
 			handleExceptions: true,
 		}),
 	],

@@ -15,6 +15,7 @@ import {
 	IS_BIC,
 	IS_BOOLEAN,
 	IS_DATE,
+	IS_DATE_STRING,
 	IS_EMAIL,
 	IS_IBAN,
 	IS_INT,
@@ -33,20 +34,21 @@ import { GenericErrorCodes } from '../domain';
 const VALIDATE_OPTIONS = 'validationOptions';
 
 const constraintToApiErrorCode: Record<string, GenericErrorCodes> = {
-	[IS_EMAIL]: GenericErrorCodes.InvalidEmail,
-	[IS_INT]: GenericErrorCodes.InvalidNumber,
-	[IS_BOOLEAN]: GenericErrorCodes.InvalidBoolean,
-	[MAX]: GenericErrorCodes.ValueTooBig,
-	[MIN]: GenericErrorCodes.ValueTooSmall,
-	[IS_URL]: GenericErrorCodes.InvalidURL,
-	[IS_IBAN]: GenericErrorCodes.InvalidIban,
-	[IS_BIC]: GenericErrorCodes.InvalidBIC,
-	[IS_NUMBER]: GenericErrorCodes.InvalidNumber,
-	[IS_DATE]: GenericErrorCodes.InvalidDate,
-	[IS_NOT_EMPTY]: GenericErrorCodes.ValueRequired,
-	[ARRAY_NOT_EMPTY]: GenericErrorCodes.ValueRequired,
-	[MIN_LENGTH]: GenericErrorCodes.InvalidLength,
-	[MAX_LENGTH]: GenericErrorCodes.InvalidLength,
+	[IS_EMAIL]: GenericErrorCodes.INVALID_EMAIL,
+	[IS_INT]: GenericErrorCodes.INVALID_NUMBER,
+	[IS_BOOLEAN]: GenericErrorCodes.INVALID_BOOLEAN,
+	[MAX]: GenericErrorCodes.VALUE_TOO_BIG,
+	[MIN]: GenericErrorCodes.VALUE_TOO_SMALL,
+	[IS_URL]: GenericErrorCodes.INVALID_URL,
+	[IS_IBAN]: GenericErrorCodes.INVALID_IBAN,
+	[IS_BIC]: GenericErrorCodes.INVALID_BIC,
+	[IS_NUMBER]: GenericErrorCodes.INVALID_NUMBER,
+	[IS_DATE]: GenericErrorCodes.INVALID_DATE,
+	[IS_DATE_STRING]: GenericErrorCodes.INVALID_DATE,
+	[IS_NOT_EMPTY]: GenericErrorCodes.VALUE_REQUIRED,
+	[ARRAY_NOT_EMPTY]: GenericErrorCodes.VALUE_REQUIRED,
+	[MIN_LENGTH]: GenericErrorCodes.INVALID_LENGTH,
+	[MAX_LENGTH]: GenericErrorCodes.INVALID_LENGTH,
 };
 
 @Injectable()
@@ -64,7 +66,7 @@ export class ValidationPipe implements PipeTransform<any> {
 				exceptionFactory: (err) =>
 					new BadRequestException({
 						message: err,
-						code: GenericErrorCodes.InvalidNumber,
+						code: GenericErrorCodes.INVALID_NUMBER,
 					}),
 			}).transform(value, metadata);
 		}
@@ -74,7 +76,7 @@ export class ValidationPipe implements PipeTransform<any> {
 				exceptionFactory: (err) =>
 					new BadRequestException({
 						message: err,
-						code: GenericErrorCodes.InvalidBoolean,
+						code: GenericErrorCodes.INVALID_BOOLEAN,
 					}),
 			}).transform(value, metadata);
 		}
@@ -122,7 +124,7 @@ export class ValidationPipe implements PipeTransform<any> {
 						message,
 						code:
 							constraintToApiErrorCode[constraint] ??
-							GenericErrorCodes.InvalidValue,
+							GenericErrorCodes.INVALID_VALUE,
 					})
 				)
 			)

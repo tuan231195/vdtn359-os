@@ -1,6 +1,6 @@
 import convict from 'convict';
 
-interface SwaggerOptions {
+export interface SwaggerOptions {
 	path?: string;
 	title?: string;
 	description?: string;

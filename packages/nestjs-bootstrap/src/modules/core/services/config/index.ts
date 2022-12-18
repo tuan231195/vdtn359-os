@@ -1,1 +1,1 @@
-export * from './createConfig';
+export * from './create-config';

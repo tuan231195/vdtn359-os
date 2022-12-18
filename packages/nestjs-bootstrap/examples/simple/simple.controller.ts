@@ -11,15 +11,16 @@ import {
 	ApiOperation,
 	ApiTags,
 } from '@nestjs/swagger';
-import { HelloService } from './hello.service';
-import { HelloRequest, HelloResponse } from './hello.domain';
-import { convertToInstance, RequestLogger, Errors } from '../src';
+import { HelloService } from '../hello.service';
+import { SimpleRequest, SimpleResponse } from './simple.domain';
+import { Errors, RequestLogger } from '../../src';
+import { serialize } from 'src/utils';
 
-@ApiTags('Hello')
+@ApiTags('Simple')
 @Controller({
 	version: '1',
 })
-export class HelloController {
+export class SimpleController {
 	constructor(
 		private readonly helloService: HelloService,
 		private readonly logger: RequestLogger
@@ -35,15 +36,15 @@ export class HelloController {
 	@ApiOperation({ description: 'Hello someone' })
 	@ApiOkResponse({
 		description: 'Hello successfully',
-		type: HelloResponse,
+		type: SimpleResponse,
 	})
 	@ApiBadRequestResponse({
 		description: 'Bad request',
 		type: Errors,
 	})
-	postHello(@Body() helloRequest: HelloRequest): HelloResponse {
-		const { name } = helloRequest;
-		this.logger.info(`Hello ${name}`);
+	postHello(@Body() simpleRequest: SimpleRequest) {
+		const { name } = simpleRequest;
+		this.logger.info(`Hello ${name}`, simpleRequest);
 
 		if (name === 'unknown') {
 			throw new BadRequestException({
@@ -56,8 +57,9 @@ export class HelloController {
 		}
 		const message = this.helloService.postHello(name);
 
-		return convertToInstance(HelloResponse, {
+		return serialize(SimpleResponse, {
 			message,
+			request: simpleRequest,
 		});
 	}
 }
