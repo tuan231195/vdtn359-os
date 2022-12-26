@@ -13,11 +13,15 @@ import {
 } from './modules/core';
 import { BootstrapOptions, SwaggerOptions } from 'src/modules/core/interface';
 
-function setupSwagger(
-	app: INestApplication,
-	swagger: SwaggerOptions,
-	version: string
-) {
+function setupSwagger({
+	app,
+	swagger,
+	version,
+}: {
+	app: INestApplication;
+	swagger?: SwaggerOptions;
+	version: string;
+}) {
 	const config = new DocumentBuilder()
 		.setTitle(swagger?.title ?? '')
 		.setDescription(swagger?.description ?? '')
@@ -36,7 +40,7 @@ export const setupApp = async (app: INestApplication) => {
 		type: VersioningType.URI,
 	});
 
-	setupSwagger(app, swagger, version);
+	setupSwagger({ app: app, swagger: swagger, version: version });
 
 	const validationPipe = app.get(ValidationPipe);
 	const contextInterceptor = app.get(ContextInterceptor);

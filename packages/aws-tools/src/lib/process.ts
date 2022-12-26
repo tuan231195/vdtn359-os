@@ -20,10 +20,10 @@ export class Process {
 				options
 			);
 		} else {
-			this.process = spawn(command, args, options);
+			this.process = spawn(command, args, options as SpawnOptions);
 		}
 		this.command = [command, ...args].join(' ');
-		this.process.stderr.on('data', (data) => {
+		this.process.stderr?.on('data', (data) => {
 			process.stderr.write(data.toString('utf-8'));
 		});
 	}
@@ -53,14 +53,14 @@ export class Process {
 				}
 			};
 
-			lastProcess.process.stdout.on('data', (data) =>
+			lastProcess.process.stdout?.on('data', (data) =>
 				finish(data.toString('utf-8'))
 			);
 
 			for (let i = 0; i < processes.length; i++) {
 				if (i < processes.length - 1) {
 					processes[i].process.stdout
-						.pipe(processes[i + 1].process.stdin)
+						?.pipe(processes[i + 1].process.stdin!)
 						.on('error', (err) => {
 							WError.wrap(
 								`Failed to execute commands: ${processes
@@ -80,7 +80,7 @@ export class Process {
 					);
 				};
 
-				processes[i].process.stdout.on('error', failWithError);
+				processes[i].process.stdout?.on('error', failWithError);
 				processes[i].process.on('error', failWithError);
 				processes[i].process.on('close', (code) => {
 					if (code !== 0) {

@@ -12,9 +12,11 @@ export async function s3Lookup({
 	cache?: boolean;
 }) {
 	checkFzf();
-	let searchBucket = bucket;
+	let searchBucket: string;
 	if (!bucket) {
 		searchBucket = await getBucket(cache);
+	} else {
+		searchBucket = bucket;
 	}
 	const s3ListBucket = new Process(
 		'aws',
@@ -29,7 +31,7 @@ export async function s3Lookup({
 
 	console.info(`Getting ${key} from ${searchBucket}`);
 
-	const { Body } = await s3
+	const { Body = '' } = await s3
 		.getObject({
 			Bucket: searchBucket,
 			Key: key,
@@ -39,7 +41,7 @@ export async function s3Lookup({
 	process.stdout.write(Body.toString('utf-8'));
 }
 
-async function getBucket(cache: boolean) {
+async function getBucket(cache?: boolean) {
 	const s3ListBucket = new Process('aws', ['s3', 'ls', '--no-cli-pager'], {
 		cache,
 	});

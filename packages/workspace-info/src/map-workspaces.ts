@@ -7,7 +7,7 @@ import glob from 'glob';
 const pGlob = promisify(glob);
 
 function appendNegatedPatterns(patterns) {
-	const results = [];
+	const results: any[] = [];
 	for (let pattern of patterns) {
 		const excl = pattern.match(/^!+/);
 		if (excl) {

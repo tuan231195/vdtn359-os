@@ -18,7 +18,7 @@ const DIRECTORY = '.cache-exec';
 
 type CacheArgs = {
 	command: string;
-	temp: boolean;
+	temp?: boolean;
 };
 export async function readCache({
 	command,
@@ -62,11 +62,11 @@ export async function clearCache({
 }) {
 	log(command ? `Clearing cache for command ${command}` : 'Clearing cache');
 	const key = command ? hash(command) : '';
-	const directories = [];
-	if (home === true) {
+	const directories: string[] = [];
+	if (home) {
 		directories.push(homeFile(key));
 	}
-	if (temp === true) {
+	if (temp) {
 		directories.push(tmpFile(key));
 	}
 	if (!home && !temp) {
@@ -77,11 +77,11 @@ export async function clearCache({
 	await Promise.all(directories.map((directory) => removeAsync(directory)));
 }
 
-function prepareDir(temp: boolean) {
+function prepareDir(temp?: boolean) {
 	return mkdirpAsync(cacheFile({ temp }));
 }
 
-function cacheFile({ file = '', temp }: { file?: string; temp: boolean }) {
+function cacheFile({ file = '', temp = false }) {
 	return temp ? tmpFile(file) : homeFile(file);
 }
 

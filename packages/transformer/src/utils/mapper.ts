@@ -115,7 +115,7 @@ export class Mapper {
 				: sourceMetadata;
 			if (
 				!shouldExpose({
-					key: transformToClass ? mapping.to : key,
+					key: transformToClass ? mapping!.to : key,
 					value,
 					metadata,
 					transformOptions,

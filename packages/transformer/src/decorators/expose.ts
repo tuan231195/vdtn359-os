@@ -70,14 +70,14 @@ export function Expose(options: ExposeOptions = {}): PropertyDecorator {
 			excludeIf: (key, value, exposeOptions, transformOptions = {}) => {
 				const excludeIf = options.excludeIf || (() => false);
 				let groupCondition = () => false;
-				if (exposeOptions.groups && !transformOptions.ignoreGroups) {
+				if (exposeOptions?.groups && !transformOptions.ignoreGroups) {
 					groupCondition = () =>
-						exposeOptions.groups.every(
+						exposeOptions?.groups?.every(
 							(fieldGroup) =>
 								!(transformOptions.groups || []).includes(
 									fieldGroup
 								)
-						);
+						) ?? false;
 				}
 				return (
 					excludeIf(key, value, exposeOptions, transformOptions) ||

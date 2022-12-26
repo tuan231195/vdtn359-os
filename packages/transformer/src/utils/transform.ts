@@ -126,13 +126,14 @@ export function shouldExpose({
 }: {
 	key: string;
 	value: any;
-	metadata: Map<string, ExposeOptions>;
+	metadata?: Map<string, ExposeOptions>;
 	transformOptions: TransformOptions;
 	transformType: TransformType;
 }) {
 	const exposeOptions = metadata?.get(key);
 	if (
 		transformOptions.excludeIf &&
+		exposeOptions &&
 		transformOptions.excludeIf(key, value, exposeOptions, transformOptions)
 	) {
 		return false;

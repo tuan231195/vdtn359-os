@@ -4,8 +4,8 @@ export default function (babel) {
 		name: 'babel-plugin-add-class-properties',
 		visitor: {
 			ClassDeclaration(path) {
-				const properties = [];
-				const staticVariables = [];
+				const properties: string[] = [];
+				const staticVariables: string[] = [];
 				path.traverse(addProperties());
 
 				addClassProperty(path, '__PROPERTIES__', properties);

@@ -138,7 +138,7 @@ export default class DepsPlugin extends Plugin {
 		const workspacePackage = workspaceInfo[packageName];
 
 		if (!workspacePackage) {
-			return;
+			return [];
 		}
 
 		return Array.from(

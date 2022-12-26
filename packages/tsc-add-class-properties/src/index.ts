@@ -4,8 +4,8 @@ export default function () {
 	return (ctx: ts.TransformationContext) => (sourceFile: ts.SourceFile) => {
 		function visitor(node: ts.Node): ts.Node {
 			if (ts.isClassDeclaration(node)) {
-				const properties = [];
-				const staticVariables = [];
+				const properties: string[] = [];
+				const staticVariables: string[] = [];
 				node.forEachChild((childNode) => {
 					if (isProperty(childNode)) {
 						let isStatic = false;
@@ -16,7 +16,7 @@ export default function () {
 									ts.SyntaxKind.StaticKeyword
 							);
 						}
-						const name = childNode.name.getText();
+						const name = childNode.name!.getText();
 						if (isStatic) {
 							staticVariables.push(name);
 						} else {

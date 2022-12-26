@@ -21,7 +21,7 @@ export async function ssmLookup({
 			WithDecryption: true,
 		})
 		.promise();
-	process.stdout.write(Parameter?.Value);
+	process.stdout.write(Parameter?.Value as string);
 }
 
 async function getParameter({

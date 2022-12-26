@@ -163,8 +163,8 @@ function startBuilding(
 		project.packageName
 	);
 
-	pr.stdout.pipe(transform);
-	pr.stderr.pipe(transform);
+	pr.stdout!.pipe(transform);
+	pr.stderr!.pipe(transform);
 	transform.pipe(process.stdout);
 
 	return new Promise(async (resolve, reject) => {
@@ -227,6 +227,9 @@ function dependencyLayer(
 	queue.push(toProject);
 	while (queue.length > 0) {
 		const currentProject = queue.shift();
+		if (!currentProject) {
+			continue;
+		}
 		if (visited[currentProject.packageName]) {
 			continue;
 		}
@@ -254,6 +257,9 @@ function consumingLayer(
 	queue.push(fromProject);
 	while (queue.length > 0) {
 		const currentProject = queue.shift();
+		if (!currentProject) {
+			continue;
+		}
 		if (visited[currentProject.packageName]) {
 			continue;
 		}
@@ -285,6 +291,9 @@ function allLayer(
 
 		while (queue.length > 0) {
 			const currentProject = queue.shift();
+			if (!currentProject) {
+				continue;
+			}
 			projectMap[currentProject.packageName] = currentProject;
 			dag[currentProject.packageName] =
 				dag[currentProject.packageName] || [];

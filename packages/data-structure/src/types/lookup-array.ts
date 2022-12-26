@@ -28,6 +28,9 @@ export class LookupArray<T = any> {
 
 	pop() {
 		const item = this.arr.pop();
+		if (item === undefined) {
+			return;
+		}
 		this.set.delete(item);
 
 		return item;

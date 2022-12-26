@@ -141,17 +141,21 @@ function getDependencies(
 	rushConfig: rushLib.RushConfiguration,
 	toProject: rushLib.RushConfigurationProject
 ) {
-	const queue = [];
+	const queue: rushLib.RushConfigurationProject[] = [];
 	const visited = {};
 
 	queue.push(toProject);
 	while (queue.length > 0) {
 		const currentProject = queue.shift();
+		if (!currentProject) {
+			continue;
+		}
 		if (visited[currentProject.packageName]) {
 			continue;
 		}
 		visited[currentProject.packageName] = true;
-		for (const dependencyProject of currentProject.dependencyProjects) {
+		for (const dependencyProject of currentProject?.dependencyProjects ||
+			[]) {
 			if (dependencyProject.projectRelativeFolder.startsWith('tools')) {
 				continue;
 			}
