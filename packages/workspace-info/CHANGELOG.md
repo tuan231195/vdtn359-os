@@ -1,5 +1,11 @@
 # @vdtn359/workspace-info
 
+## 2.0.1
+
+### Patch Changes
+
+-   82ab3f6: fix typescript compilation
+
 ## 2.0.0
 
 ### Major Changes

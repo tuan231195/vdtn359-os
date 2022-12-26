@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/workspace-info",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "yarn workspace info implementation for yarn v2 berry, lerna and npm workspaces",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
