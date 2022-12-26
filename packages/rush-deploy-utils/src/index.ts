@@ -154,8 +154,7 @@ function getDependencies(
 			continue;
 		}
 		visited[currentProject.packageName] = true;
-		for (const dependencyProject of currentProject?.dependencyProjects ||
-			[]) {
+		for (const dependencyProject of currentProject.dependencyProjects) {
 			if (dependencyProject.projectRelativeFolder.startsWith('tools')) {
 				continue;
 			}
