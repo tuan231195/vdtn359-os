@@ -24,6 +24,8 @@ import { DECORATORS } from '@nestjs/swagger/dist/constants';
 import { METADATA_FACTORY_NAME } from '@nestjs/swagger/dist/plugin/plugin-constants';
 import { OptionalToNullable } from 'src/utils/types';
 
+export * from '@nestjs/swagger';
+
 function getAdditionalDecorators(options?: ApiPropertyOptions) {
 	const additionalDecorators: PropertyDecorator[] = [Expose()];
 	if (options?.type) {

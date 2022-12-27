@@ -199,6 +199,7 @@ importers:
       '@nestjs/platform-fastify': 8.4.4_u6bxr3c7htwmhq2t5wi3k6ht4y
       '@nestjs/swagger': 5.2.1_e3fweiif6hoadkh5whje6xkv4y
       '@nestjs/terminus': 8.0.6_eqolnjailvrsgpjwojmchkclhe
+      '@types/convict': 6.1.1
       convict: 6.2.3
       dayjs: 1.11.2
       fastify-swagger: 5.2.0
@@ -212,7 +213,6 @@ importers:
       '@nestjs/common': 8.4.4_um5yyjpwkyxikchdommcqtg4bu
       '@nestjs/core': 8.4.4_ozyn6uy6pikqhtn6hfkzt5a5w4
       '@nestjs/testing': 8.4.4_u6bxr3c7htwmhq2t5wi3k6ht4y
-      '@types/convict': 6.1.1
       class-transformer: 0.4.0
       class-validator: 0.13.2
       reflect-metadata: 0.1.13
@@ -3801,7 +3801,7 @@ packages:
     resolution: {integrity: sha512-R+JLaTvhsD06p4jyjUDtbd5xMtZTRE3c0iI+lrFWZogSVEjgTWPYwvJPVf+t92E+yrlbXa4X4Eg9ro6gPdUt4w==}
     dependencies:
       '@types/node': 17.0.23
-    dev: true
+    dev: false
 
   /@types/glob/7.2.0:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
