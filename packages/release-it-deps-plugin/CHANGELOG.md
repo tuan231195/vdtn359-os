@@ -1,5 +1,13 @@
 # @vdtn359/release-it-deps-plugin
 
+## 1.0.5
+
+### Patch Changes
+
+-   82ab3f6: fix typescript compilation
+-   Updated dependencies [82ab3f6]
+    -   @vdtn359/workspace-info@2.0.1
+
 ## 1.0.4
 
 ### Patch Changes

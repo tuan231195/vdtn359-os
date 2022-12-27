@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/data-structure",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Data structure",
     "types": "dist/index.d.ts",
     "repository": {

@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/jest-config",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Base jest config",
     "main": "index.js",
     "peerDependencies": {

@@ -1,6 +1,6 @@
 {
     "name": "babel-plugin-add-class-properties",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Add class properties information to each class",
     "repository": {
         "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/babel-plugin-add-class-properties"
