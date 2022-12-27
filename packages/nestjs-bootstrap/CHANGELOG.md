@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.6
+
+### Patch Changes
+
+-   915d1c6: fix disable validation
+
 ## 1.0.5
 
 ### Patch Changes
