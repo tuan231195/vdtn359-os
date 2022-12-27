@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.5
+
+### Patch Changes
+
+-   7fd8f3c: support each
+
 ## 1.0.4
 
 ### Patch Changes
