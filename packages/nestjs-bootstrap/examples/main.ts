@@ -1,19 +1,10 @@
 import 'reflect-metadata';
-import { NestFactory } from '@nestjs/core';
-import { CONFIG_TOKEN, RootLogger, setupApp } from '../src';
-import {
-	FastifyAdapter,
-	NestFastifyApplication,
-} from '@nestjs/platform-fastify';
+import { CONFIG_TOKEN, RootLogger, createApp } from '../src';
 import { Config } from './config';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-	const app = await NestFactory.create<NestFastifyApplication>(
-		AppModule,
-		new FastifyAdapter({ caseSensitive: false })
-	);
-	await setupApp(app);
+	const app = await createApp(AppModule);
 	const config: Config = app.get(CONFIG_TOKEN);
 	const rootLogger = app.get(RootLogger);
 	rootLogger.info(`Config: ${config.toString()}`);

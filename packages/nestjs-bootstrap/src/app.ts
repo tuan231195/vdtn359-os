@@ -1,6 +1,6 @@
 import { INestApplication, VersioningType } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { HttpAdapterHost } from '@nestjs/core';
+import { HttpAdapterHost, NestFactory } from '@nestjs/core';
 import morgan from 'morgan';
 
 import {
@@ -12,6 +12,10 @@ import {
 	ValidationPipe,
 } from './modules/core';
 import { BootstrapOptions, SwaggerOptions } from 'src/modules/core/interface';
+import {
+	FastifyAdapter,
+	NestFastifyApplication,
+} from '@nestjs/platform-fastify';
 
 function setupSwagger({
 	app,
@@ -31,7 +35,15 @@ function setupSwagger({
 	SwaggerModule.setup('doc', app, document);
 }
 
-export const setupApp = async (app: INestApplication) => {
+export const createApp = async (module: any) => {
+	const app = await NestFactory.create<NestFastifyApplication>(
+		module,
+		new FastifyAdapter({ caseSensitive: false })
+	);
+	return setupApp(app);
+};
+
+export const setupApp = (app: INestApplication) => {
 	const bootstrapOptions: BootstrapOptions = app.get(BOOTSTRAP_OPTIONS_TOKEN);
 	const { swagger, version } = bootstrapOptions;
 
