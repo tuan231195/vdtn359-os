@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.4
+
+### Patch Changes
+
+-   f37b05b: fix typings
+
 ## 1.0.3
 
 ### Patch Changes

@@ -27,7 +27,9 @@ import { OptionalToNullable } from 'src/utils/types';
 
 export * from '@nestjs/swagger';
 
-function getAdditionalDecorators(options?: ApiPropertyOptions) {
+function getAdditionalDecorators(
+	options?: ApiPropertyOptions & { transform?: boolean }
+) {
 	const additionalDecorators: PropertyDecorator[] = [Expose()];
 	if (options?.type) {
 		const { type, transform } = options as any;
@@ -82,7 +84,9 @@ function getAdditionalDecorators(options?: ApiPropertyOptions) {
 	return additionalDecorators;
 }
 
-export const ApiProperty = (args?: ApiPropertyOptions) => {
+export const ApiProperty = (
+	args?: ApiPropertyOptions & { transform?: boolean }
+) => {
 	const nullable = args?.nullable ?? false;
 
 	const decorators = [
@@ -100,7 +104,10 @@ export const ApiProperty = (args?: ApiPropertyOptions) => {
 };
 
 export const ApiPropertyOptional = (
-	args?: ApiPropertyOptions & { disableDefaultValidation?: boolean }
+	args?: ApiPropertyOptions & {
+		disableDefaultValidation?: boolean;
+		transform?: boolean;
+	}
 ) => {
 	const nullable = args?.nullable ?? true;
 
