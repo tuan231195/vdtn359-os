@@ -24,8 +24,6 @@ import { DECORATORS } from '@nestjs/swagger/dist/constants';
 import { METADATA_FACTORY_NAME } from '@nestjs/swagger/dist/plugin/plugin-constants';
 import { OptionalToNullable } from 'src/utils/types';
 
-export * from '@nestjs/swagger';
-
 function getAdditionalDecorators(options?: ApiPropertyOptions) {
 	const additionalDecorators: PropertyDecorator[] = [Expose()];
 	if (options?.type) {
@@ -78,15 +76,19 @@ export const ApiProperty = (args?: ApiPropertyOptions) => {
 	return applyDecorators(...decorators);
 };
 
-export const ApiPropertyOptional = (args?: ApiPropertyOptions) => {
+export const ApiPropertyOptional = (
+	args?: ApiPropertyOptions & { disableDefaultValidation?: boolean }
+) => {
 	const nullable = args?.nullable ?? true;
 
 	const decorators = [
 		Expose(),
 		SwaggerAPIPropertyOptional({ required: false, nullable, ...args }),
-		nullable ? IsOptional() : OptionalNotNullable(),
 		...getAdditionalDecorators(args),
 	];
+	if (args?.disableDefaultValidation) {
+		decorators.push(nullable ? IsOptional() : OptionalNotNullable());
+	}
 	return applyDecorators(...decorators);
 };
 
