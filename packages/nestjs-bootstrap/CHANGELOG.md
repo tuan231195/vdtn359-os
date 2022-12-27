@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.10
+
+### Patch Changes
+
+-   5cfc99e: allow ability to exclude swagger
+
 ## 1.0.9
 
 ### Patch Changes
