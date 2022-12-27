@@ -52,7 +52,9 @@ export const setupApp = (app: INestApplication) => {
 		type: VersioningType.URI,
 	});
 
-	setupSwagger({ app: app, swagger: swagger, version: version });
+	if (swagger) {
+		setupSwagger({ app: app, swagger: swagger, version: version });
+	}
 
 	const validationPipe = app.get(ValidationPipe);
 	const contextInterceptor = app.get(ContextInterceptor);
