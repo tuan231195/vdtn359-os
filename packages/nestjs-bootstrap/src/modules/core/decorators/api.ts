@@ -116,7 +116,7 @@ export const ApiPropertyOptional = (
 		SwaggerAPIPropertyOptional({ required: false, nullable, ...args }),
 		...getAdditionalDecorators(args),
 	];
-	if (args?.disableDefaultValidation) {
+	if (!args?.disableDefaultValidation) {
 		decorators.push(nullable ? IsOptional() : OptionalNotNullable());
 	}
 	return applyDecorators(...decorators);

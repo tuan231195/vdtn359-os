@@ -9,7 +9,7 @@ import {
 	ValidationPipe as BuiltinValidationPipe,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { merge } from 'lodash';
+import { merge, keyBy } from 'lodash';
 import {
 	ARRAY_NOT_EMPTY,
 	IS_BIC,
@@ -114,7 +114,7 @@ export class ValidationPipe implements PipeTransform<any> {
 		validationPipe: any,
 		validationErrors: ValidationError[]
 	) {
-		return validationErrors
+		const errors = validationErrors
 			.map((error) => validationPipe.mapChildrenToValidationErrors(error))
 			.flat()
 			.filter((item) => !!item.constraints)
@@ -122,6 +122,7 @@ export class ValidationPipe implements PipeTransform<any> {
 				Object.entries(item.constraints || {}).map(
 					([constraint, message]) => ({
 						message,
+						path: item.property,
 						code:
 							constraintToApiErrorCode[constraint] ??
 							GenericErrorCodes.INVALID_VALUE,
@@ -129,6 +130,8 @@ export class ValidationPipe implements PipeTransform<any> {
 				)
 			)
 			.flat();
+
+		return Object.values(keyBy(errors, 'path'));
 	}
 }
 
