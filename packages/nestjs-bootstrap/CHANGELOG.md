@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.2
+
+### Patch Changes
+
+-   849949f: add setupApp and createApp
+
 ## 1.0.1
 
 ### Patch Changes
