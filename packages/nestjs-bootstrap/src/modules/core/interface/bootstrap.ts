@@ -10,6 +10,6 @@ export interface BootstrapOptions {
 	swagger?: SwaggerOptions;
 	version: string;
 	name: string;
-	config: convict.Config<any>;
+	config: convict.Config<any> | (() => Promise<convict.Config<any>>);
 	healthChecks?: Record<string, () => Promise<boolean>>;
 }

@@ -23,7 +23,12 @@ export class CoreModule {
 			providers: [
 				{
 					provide: CONFIG_TOKEN,
-					useValue: bootstrapOptions.config,
+					useFactory: () => {
+						if (typeof bootstrapOptions.config === 'function') {
+							return bootstrapOptions.config();
+						}
+						return bootstrapOptions.config;
+					},
 				},
 				{
 					provide: BOOTSTRAP_OPTIONS_TOKEN,
