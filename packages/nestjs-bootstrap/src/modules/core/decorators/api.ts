@@ -11,6 +11,7 @@ import {
 	IsOptional,
 	IsString,
 	ValidateNested,
+	IsBoolean,
 } from 'class-validator';
 import { IsDefined, IsNotNull, OptionalNotNullable } from './validator';
 import { TypeBoolean } from 'src/modules/core';
@@ -29,26 +30,46 @@ export * from '@nestjs/swagger';
 function getAdditionalDecorators(options?: ApiPropertyOptions) {
 	const additionalDecorators: PropertyDecorator[] = [Expose()];
 	if (options?.type) {
-		const { type } = options as any;
+		const { type, transform } = options as any;
 		if (type === Boolean) {
-			additionalDecorators.push(TypeBoolean());
+			if (transform) {
+				additionalDecorators.push(TypeBoolean());
+			}
+			additionalDecorators.push(
+				IsBoolean({
+					each: options.isArray,
+				})
+			);
 		} else if (type === Number) {
-			additionalDecorators.push(IsNumber());
+			if (transform) {
+				additionalDecorators.push(Type(() => Number));
+			}
+			additionalDecorators.push(
+				IsNumber(undefined, {
+					each: options.isArray,
+				})
+			);
 		} else if (type === Date) {
 			additionalDecorators.push(
 				Type(() => type),
-				IsDate()
+				IsDate({
+					each: options.isArray,
+				})
 			);
 		} else if (type === String) {
+			if (transform) {
+				additionalDecorators.push(Type(() => String));
+			}
 			additionalDecorators.push(
-				Type(() => type),
-				IsString()
+				IsString({
+					each: options.isArray,
+				})
 			);
 		} else if (typeof type === 'function') {
 			if (options.isArray) {
 				additionalDecorators.push(
 					ValidateNested({ each: true }),
-					Type(() => type as any)
+					Type(() => type)
 				);
 			} else {
 				additionalDecorators.push(
