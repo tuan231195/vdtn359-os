@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.3
+
+### Patch Changes
+
+-   3ae78e0: disable default validation
+
 ## 1.0.2
 
 ### Patch Changes
