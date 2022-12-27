@@ -15,11 +15,12 @@
         "start": "ts-node -r tsconfig-paths/register -T examples/main.ts"
     },
     "dependencies": {
+        "@fastify/static": "^6.6.0",
         "@nestjs-steroids/async-context": "^2.0.0",
-        "@nestjs/platform-fastify": "^8.4.4",
-        "@nestjs/terminus": "^8.0.3",
+        "@nestjs/platform-fastify": "^9.2.1",
+        "@nestjs/terminus": "^9.1.4",
         "@nestjs/mapped-types": "^1.2.0",
-        "@nestjs/swagger": "^5.2.1",
+        "@nestjs/swagger": "^6.1.4",
         "@types/convict": "^6.1.1",
         "convict": "^6.2.3",
         "fastify-swagger": "^5.2.0",
@@ -32,17 +33,17 @@
         "winston-console-format": "^1.0.8"
     },
     "devDependencies": {
-        "@nestjs/common": "^8.0.0",
-        "@nestjs/core": "^8.0.0",
-        "@nestjs/testing": "^8.4.4",
+        "@nestjs/common": "^9.2.1",
+        "@nestjs/core": "^9.2.1",
+        "@nestjs/testing": "^9.2.1",
         "class-transformer": "0.4.0",
         "class-validator": "^0.13.2",
         "reflect-metadata": "^0.1.13",
         "supertest": "^6.2.3"
     },
     "peerDependencies": {
-        "@nestjs/common": "^8.0.0",
-        "@nestjs/core": "^8.0.0",
+        "@nestjs/common": "^9.2.1",
+        "@nestjs/core": "^9.2.1",
         "reflect-metadata": "^0.1.13",
         "class-transformer": "0.4.0",
         "class-validator": "^0.13.2"
