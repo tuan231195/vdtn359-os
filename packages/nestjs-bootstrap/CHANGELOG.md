@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.7
+
+### Patch Changes
+
+-   103578d: improve validation
+
 ## 1.0.6
 
 ### Patch Changes
