@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.9
+
+### Patch Changes
+
+-   c52589e: update nestjs
+
 ## 1.0.8
 
 ### Patch Changes
