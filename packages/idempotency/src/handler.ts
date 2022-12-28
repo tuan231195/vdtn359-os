@@ -3,18 +3,13 @@ import {
 	CurrentlyProcessingError,
 	IdempotencyKeyAlreadyExists,
 } from 'src/errors';
+import { Logger } from 'src/types';
 
 export interface IdempotencyHandlerProps<T> {
 	idempotencyKey?: string;
 	ttlInMillis?: number;
 	timeoutInMillis?: number;
 	handler: () => T;
-}
-
-interface Logger {
-	info(...args: any[]): void;
-	error(...args: any[]): void;
-	warn(...args: any[]): void;
 }
 
 export type IdempotencyHandlers<T> = (props: IdempotencyHandlerProps<T>) => T;

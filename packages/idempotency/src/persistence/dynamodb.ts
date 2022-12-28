@@ -3,6 +3,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
 import { DynamoDBClientConfig } from '@aws-sdk/client-dynamodb/dist-types/DynamoDBClient';
 import { IdempotencyKeyAlreadyExists } from 'src/errors';
+import { Logger } from 'src/types';
 
 export class DynamoDbStore implements BaseStore {
 	private documentClient: DynamoDBDocument;
@@ -10,7 +11,7 @@ export class DynamoDbStore implements BaseStore {
 	constructor(
 		private readonly config: DynamoDBClientConfig,
 		private readonly tableName: string,
-		private readonly logger = console
+		private readonly logger: Logger = console
 	) {
 		const client = new DynamoDBClient(config);
 		this.documentClient = DynamoDBDocument.from(client, {
