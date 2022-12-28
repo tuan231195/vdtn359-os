@@ -1,5 +1,11 @@
 # @vdtn359/idempotency
 
+## 1.0.7
+
+### Patch Changes
+
+-   89f6ee5: fix naming
+
 ## 1.0.6
 
 ### Patch Changes
