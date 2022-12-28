@@ -7,7 +7,7 @@ import {
 export interface IdempotencyHandlerProps<T> {
 	idempotencyKey?: string;
 	ttlInMillis?: number;
-	timeoutInMills?: number;
+	timeoutInMillis?: number;
 	handler: () => T;
 }
 
@@ -17,7 +17,7 @@ export function handleIdempotency(storage: BaseStore, logger = console) {
 	return async <T>({
 		idempotencyKey,
 		ttlInMillis,
-		timeoutInMills,
+		timeoutInMillis,
 		handler,
 	}: IdempotencyHandlerProps<T>) => {
 		if (!idempotencyKey) {
@@ -29,8 +29,8 @@ export function handleIdempotency(storage: BaseStore, logger = console) {
 					? Math.floor((Date.now() + ttlInMillis) / 1000)
 					: undefined,
 			timeout:
-				timeoutInMills !== undefined
-					? Date.now() + timeoutInMills
+				timeoutInMillis !== undefined
+					? Date.now() + timeoutInMillis
 					: undefined,
 			status: ItemStatus.IN_PROGRESS,
 			createdAt: Date.now(),
