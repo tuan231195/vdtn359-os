@@ -8,8 +8,10 @@ export interface IdempotencyHandlerProps<T> {
 	idempotencyKey?: string;
 	ttlInMillis?: number;
 	timeoutInMills?: number;
-	handler: () => T | Promise<T>;
+	handler: () => T;
 }
+
+export type IdempotencyHandlers<T> = (props: IdempotencyHandlerProps<T>) => T;
 
 export function handleIdempotency(storage: BaseStore, logger = console) {
 	return async <T>({

@@ -52,6 +52,9 @@
         },
         {
             "path": "./circleci-pipeline-builder/tsconfig.build.json"
+        },
+        {
+            "path": "./idempotency/tsconfig.build.json"
         }
     ]
 }
