@@ -5,7 +5,7 @@ import {
 } from 'src/errors';
 
 export interface IdempotencyHandlerProps<T> {
-	idempotencyKey: string;
+	idempotencyKey?: string;
 	ttlInMillis?: number;
 	timeoutInMills?: number;
 	handler: () => T | Promise<T>;
@@ -18,6 +18,9 @@ export function handleIdempotency(storage: BaseStore, logger = console) {
 		timeoutInMills,
 		handler,
 	}: IdempotencyHandlerProps<T>) => {
+		if (!idempotencyKey) {
+			return handler();
+		}
 		const inProgressItem: Item<T> = {
 			ttl:
 				ttlInMillis !== undefined
