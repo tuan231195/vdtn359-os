@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.12
+
+### Patch Changes
+
+-   87218a6: support defaults config
+
 ## 1.0.11
 
 ### Patch Changes
