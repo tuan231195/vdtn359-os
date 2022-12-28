@@ -1,5 +1,11 @@
 # @vdtn359/idempotency
 
+## 1.0.9
+
+### Patch Changes
+
+-   e214348: fixed logger
+
 ## 1.0.8
 
 ### Patch Changes
