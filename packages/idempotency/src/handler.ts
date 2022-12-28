@@ -11,9 +11,18 @@ export interface IdempotencyHandlerProps<T> {
 	handler: () => T;
 }
 
+interface Logger {
+	info(...args: any[]): void;
+	error(...args: any[]): void;
+	warn(...args: any[]): void;
+}
+
 export type IdempotencyHandlers<T> = (props: IdempotencyHandlerProps<T>) => T;
 
-export function handleIdempotency(storage: BaseStore, logger = console) {
+export function handleIdempotency(
+	storage: BaseStore,
+	logger: Logger = console
+) {
 	return async <T>({
 		idempotencyKey,
 		ttlInMillis,
