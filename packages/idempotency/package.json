@@ -1,0 +1,20 @@
+{
+    "name": "@vdtn359/idempotency",
+    "version": "1.0.3",
+    "description": "Idempotency implementation",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.js",
+    "repository": {
+        "url": "https://github.com/tuan231195/vdtn359-os/tree/master/packages/url"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "ttsc -b tsconfig.build.json"
+    },
+    "dependencies": {
+        "@aws-sdk/client-dynamodb": "^3.238.0",
+        "@aws-sdk/lib-dynamodb": "^3.238.0"
+    }
+}
