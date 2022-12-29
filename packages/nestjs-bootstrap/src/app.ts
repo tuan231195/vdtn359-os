@@ -38,7 +38,10 @@ function setupSwagger({
 export const createApp = async (module: any) => {
 	const app = await NestFactory.create<NestFastifyApplication>(
 		module,
-		new FastifyAdapter({ caseSensitive: false })
+		new FastifyAdapter({ caseSensitive: false }),
+		{
+			bufferLogs: true,
+		}
 	);
 	return setupApp(app);
 };
@@ -52,10 +55,7 @@ export const setupApp = (app: INestApplication) => {
 		type: VersioningType.URI,
 	});
 
-	if (swagger) {
-		setupSwagger({ app: app, swagger: swagger, version: version });
-	}
-
+	app.useLogger(app.get(RootLogger));
 	const validationPipe = app.get(ValidationPipe);
 	const contextInterceptor = app.get(ContextInterceptor);
 	app.useGlobalPipes(validationPipe);
@@ -86,6 +86,10 @@ export const setupApp = (app: INestApplication) => {
 			}
 		)
 	);
+
+	if (swagger) {
+		setupSwagger({ app: app, swagger: swagger, version: version });
+	}
 
 	app.enableShutdownHooks();
 

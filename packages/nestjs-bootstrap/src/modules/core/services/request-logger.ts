@@ -11,7 +11,12 @@ export class RequestLogger implements LoggerService {
 	) {}
 
 	private get logger() {
-		const traceId = this.ac.get(TRACE_ID);
+		let traceId = '';
+		try {
+			traceId = this.ac.get(TRACE_ID);
+		} catch (err) {
+			this.rootLogger.warn('Async context not available');
+		}
 
 		return this.rootLogger.child({
 			traceId,
@@ -53,7 +58,7 @@ export class RequestLogger implements LoggerService {
 	/**
 	 * Write a 'verbose' level log.
 	 */
-	verbose(message: any, ...optionalParams: any[]) {
-		this.logger.verbose(message, ...optionalParams);
+	trace(message: any, ...optionalParams: any[]) {
+		this.logger.trace(message, ...optionalParams);
 	}
 }

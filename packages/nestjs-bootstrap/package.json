@@ -29,8 +29,8 @@
         "dayjs": "^1.11.2",
         "rxjs": "^7.5.5",
         "uuid": "^8.3.2",
-        "winston": "^3.7.2",
-        "winston-console-format": "^1.0.8"
+        "pino": "^8.8.0",
+        "pino-std-serializers": "^6.1.0"
     },
     "devDependencies": {
         "@nestjs/common": "^9.2.1",

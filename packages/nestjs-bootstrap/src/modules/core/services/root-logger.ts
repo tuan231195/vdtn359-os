@@ -1,20 +1,27 @@
 import { Inject, Injectable, LoggerService } from '@nestjs/common';
-import { logger } from './logger';
-import { Logger } from 'winston';
 import { BootstrapOptions } from 'src/modules/core/interface';
 import { BOOTSTRAP_OPTIONS_TOKEN } from 'src/modules/core/tokens';
+import pino, { Logger } from 'pino';
+import serializers from 'pino-std-serializers';
 
 @Injectable()
 export class RootLogger implements LoggerService {
-	private logger: Logger;
+	logger: Logger;
 
 	constructor(
 		@Inject(BOOTSTRAP_OPTIONS_TOKEN)
 		private readonly bootstrapOptions: BootstrapOptions
 	) {
-		this.logger = logger.child({
+		this.logger = pino({
 			name: bootstrapOptions.name,
 			version: bootstrapOptions.version,
+			level: process.env.LOG_LEVEL ?? 'info',
+			messageKey: 'message',
+			paths: ['req.headers.authorization', "req.headers['x-api-key']"],
+			serializers,
+			formatters: {
+				level: (label: string) => ({ level: label }),
+			},
 		});
 	}
 	info(message: any, ...optionalParams: any[]) {
@@ -54,10 +61,10 @@ export class RootLogger implements LoggerService {
 	}
 
 	/**
-	 * Write a 'verbose' level log.
+	 * Write a 'trace' level log.
 	 */
-	verbose(message: any, ...optionalParams: any[]) {
-		this.logger.verbose(message, ...optionalParams);
+	trace(message: any, ...optionalParams: any[]) {
+		this.logger.trace(message, ...optionalParams);
 	}
 
 	get stream() {
