@@ -6,7 +6,7 @@ export function createConfig<T>(
 ): convict.Config<T> {
 	const config = convict(schema);
 	for (const key of Object.keys(schema)) {
-		if (defaults[key] !== undefined) {
+		if (config.get(key as keyof T) == null && defaults[key] !== undefined) {
 			config.set(key, defaults[key]);
 		}
 	}
