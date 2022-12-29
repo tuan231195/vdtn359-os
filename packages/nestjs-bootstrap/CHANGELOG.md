@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.15
+
+### Patch Changes
+
+-   1cb7254: fixed async context
+
 ## 1.0.14
 
 ### Patch Changes
