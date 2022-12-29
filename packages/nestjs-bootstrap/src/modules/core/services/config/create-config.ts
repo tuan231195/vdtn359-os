@@ -5,8 +5,10 @@ export function createConfig<T>(
 	defaults: Record<string, any> = {}
 ): convict.Config<T> {
 	const config = convict(schema);
-	for (const [key, value] of Object.entries(defaults)) {
-		config.set(key, value);
+	for (const key of Object.keys(schema)) {
+		if (defaults[key] !== undefined) {
+			config.set(key, defaults[key]);
+		}
 	}
 	Object.entries(config.getProperties()).forEach(([key, value]) => {
 		if (!process.env[key]) {
