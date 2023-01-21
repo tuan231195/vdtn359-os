@@ -45,6 +45,9 @@
             "path": "./nestjs-bootstrap/tsconfig.build.json"
         },
         {
+            "path": "./nestjs-api-bootstrap/tsconfig.build.json"
+        },
+        {
             "path": "./cache-exec/tsconfig.build.json"
         },
         {
