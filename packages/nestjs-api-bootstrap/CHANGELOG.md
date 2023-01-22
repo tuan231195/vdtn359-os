@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.17
+
+### Patch Changes
+
+-   0ac2591: fixed logger
+
 ## 1.0.16
 
 ### Patch Changes
