@@ -230,35 +230,29 @@ importers:
 
   packages/nestjs-bootstrap:
     specifiers:
-      '@fastify/static': ^6.6.0
+      '@nestjs-steroids/async-context': ^2.0.0
       '@nestjs/common': ^9.2.1
       '@nestjs/core': ^9.2.1
       '@nestjs/testing': ^9.2.1
       '@types/convict': ^6.1.1
       convict: ^6.2.3
-      dayjs: ^1.11.2
       lodash: ^4.17.21
-      morgan: ^1.10.0
       pino: ^8.8.0
       pino-std-serializers: ^6.1.0
       reflect-metadata: ^0.1.13
-      rxjs: ^7.5.5
       supertest: ^6.2.3
       uuid: ^8.3.2
     dependencies:
-      '@fastify/static': 6.6.0
+      '@nestjs-steroids/async-context': 2.0.0_hjcqpoaebdr7gdo5hgc22hthbe
       '@types/convict': 6.1.1
       convict: 6.2.3
-      dayjs: 1.11.2
       lodash: 4.17.21
-      morgan: 1.10.0
       pino: 8.8.0
       pino-std-serializers: 6.1.0
-      rxjs: 7.5.5
       uuid: 8.3.2
     devDependencies:
-      '@nestjs/common': 9.2.1_47vcjb2de6lyibr6g4enoa5lyu
-      '@nestjs/core': 9.2.1_mfkzh5ukguftbui36dhl5aryku
+      '@nestjs/common': 9.2.1_reflect-metadata@0.1.13
+      '@nestjs/core': 9.2.1_n3ccvzwmui2f6jwh4xeqysew6i
       '@nestjs/testing': 9.2.1_hjcqpoaebdr7gdo5hgc22hthbe
       reflect-metadata: 0.1.13
       supertest: 6.2.3
@@ -3612,29 +3606,6 @@ packages:
       '@nestjs/core': 9.2.1_jeqwo7fzb4lebm6nefyhh5xlci
     dev: false
 
-  /@nestjs/common/9.2.1_47vcjb2de6lyibr6g4enoa5lyu:
-    resolution: {integrity: sha512-nZuo3oDsSSlC5mti/M2aCWTEIfHPGDXmBwWgPeCpRbrNz3IWd109rkajll+yxgidVjznAdBS9y00JkAVJblNYw==}
-    peerDependencies:
-      cache-manager: <=5
-      class-transformer: '*'
-      class-validator: '*'
-      reflect-metadata: ^0.1.12
-      rxjs: ^7.1.0
-    peerDependenciesMeta:
-      cache-manager:
-        optional: true
-      class-transformer:
-        optional: true
-      class-validator:
-        optional: true
-    dependencies:
-      iterare: 1.2.1
-      reflect-metadata: 0.1.13
-      rxjs: 7.5.5
-      tslib: 2.4.1
-      uuid: 9.0.0
-    dev: true
-
   /@nestjs/common/9.2.1_gdya5xlnz6pxq4lfne2thg4tiy:
     resolution: {integrity: sha512-nZuo3oDsSSlC5mti/M2aCWTEIfHPGDXmBwWgPeCpRbrNz3IWd109rkajll+yxgidVjznAdBS9y00JkAVJblNYw==}
     peerDependencies:
@@ -3658,6 +3629,28 @@ packages:
       rxjs: 7.5.6
       tslib: 2.4.1
       uuid: 9.0.0
+
+  /@nestjs/common/9.2.1_reflect-metadata@0.1.13:
+    resolution: {integrity: sha512-nZuo3oDsSSlC5mti/M2aCWTEIfHPGDXmBwWgPeCpRbrNz3IWd109rkajll+yxgidVjznAdBS9y00JkAVJblNYw==}
+    peerDependencies:
+      cache-manager: <=5
+      class-transformer: '*'
+      class-validator: '*'
+      reflect-metadata: ^0.1.12
+      rxjs: ^7.1.0
+    peerDependenciesMeta:
+      cache-manager:
+        optional: true
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      iterare: 1.2.1
+      reflect-metadata: 0.1.13
+      tslib: 2.4.1
+      uuid: 9.0.0
+    dev: true
 
   /@nestjs/core/9.2.1_jeqwo7fzb4lebm6nefyhh5xlci:
     resolution: {integrity: sha512-a9GkXuu8uXgNgCVW+17iI8kLCltO+HwHpU2IhR+32JKnN2WEQ1YEWU4t3GJ2MNq44YkjIw9zrKvFkjJBlYrNbQ==}
@@ -3690,7 +3683,7 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@nestjs/core/9.2.1_mfkzh5ukguftbui36dhl5aryku:
+  /@nestjs/core/9.2.1_n3ccvzwmui2f6jwh4xeqysew6i:
     resolution: {integrity: sha512-a9GkXuu8uXgNgCVW+17iI8kLCltO+HwHpU2IhR+32JKnN2WEQ1YEWU4t3GJ2MNq44YkjIw9zrKvFkjJBlYrNbQ==}
     requiresBuild: true
     peerDependencies:
@@ -3708,14 +3701,13 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 9.2.1_47vcjb2de6lyibr6g4enoa5lyu
+      '@nestjs/common': 9.2.1_reflect-metadata@0.1.13
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
       iterare: 1.2.1
       object-hash: 3.0.0
       path-to-regexp: 3.2.0
       reflect-metadata: 0.1.13
-      rxjs: 7.5.5
       tslib: 2.4.1
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -11787,6 +11779,7 @@ packages:
     resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
       tslib: 2.3.1
+    dev: false
 
   /rxjs/7.5.6:
     resolution: {integrity: sha512-dnyv2/YsXhnm461G+R/Pe5bWP41Nm6LBXEYWI6eiFP4fiwx6WRI/CD0zbdVAudd9xwLEF2IDcKXLHit0FYjUzw==}
@@ -12800,6 +12793,7 @@ packages:
 
   /tslib/2.3.1:
     resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+    dev: false
 
   /tslib/2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}

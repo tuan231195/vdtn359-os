@@ -15,13 +15,10 @@
         "start": "ts-node -r tsconfig-paths/register -T examples/main.ts"
     },
     "dependencies": {
-        "@fastify/static": "^6.6.0",
+        "@nestjs-steroids/async-context": "^2.0.0",
         "@types/convict": "^6.1.1",
         "convict": "^6.2.3",
         "lodash": "^4.17.21",
-        "morgan": "^1.10.0",
-        "dayjs": "^1.11.2",
-        "rxjs": "^7.5.5",
         "uuid": "^8.3.2",
         "pino": "^8.8.0",
         "pino-std-serializers": "^6.1.0"
