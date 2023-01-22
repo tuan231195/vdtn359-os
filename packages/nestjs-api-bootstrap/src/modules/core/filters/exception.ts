@@ -30,8 +30,6 @@ export class AllExceptionsFilter implements ExceptionFilter {
 		const errorAttributes = {
 			...responseBody,
 			err: exception,
-			'error.stack': exception.stack,
-			'error.kind': exception.name,
 			message: exception.message,
 		};
 
