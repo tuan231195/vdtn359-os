@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.18
+
+### Patch Changes
+
+-   fa6764e: add runInContext
+
 ## 1.0.17
 
 ### Patch Changes
