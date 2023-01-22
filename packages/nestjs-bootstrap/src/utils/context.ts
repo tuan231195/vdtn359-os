@@ -8,10 +8,10 @@ export async function runInContext(
 ) {
 	const asyncContext = app.get(AsyncContext);
 
-	await asyncContext.registerCallback(async () => {
+	return asyncContext.registerCallback(async () => {
 		for (const [key, value] of Object.entries(context)) {
 			asyncContext.set(key, value);
 		}
-		await handler();
+		return handler();
 	});
 }

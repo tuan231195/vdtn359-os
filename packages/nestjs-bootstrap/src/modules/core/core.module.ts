@@ -1,5 +1,5 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { RootLogger } from './services';
+import { RequestLogger, RootLogger } from './services';
 import { BOOTSTRAP_OPTIONS_TOKEN, CONFIG_TOKEN } from './tokens';
 import { BootstrapOptions } from 'src/modules/core/interface';
 import { AsyncContextModule } from '@nestjs-steroids/async-context';
@@ -9,7 +9,12 @@ export class CoreModule {
 		return {
 			module: CoreModule,
 			global: true,
-			exports: [CONFIG_TOKEN, BOOTSTRAP_OPTIONS_TOKEN, RootLogger],
+			exports: [
+				CONFIG_TOKEN,
+				BOOTSTRAP_OPTIONS_TOKEN,
+				RootLogger,
+				RequestLogger,
+			],
 			providers: [
 				{
 					provide: CONFIG_TOKEN,
@@ -25,6 +30,7 @@ export class CoreModule {
 					useValue: bootstrapOptions,
 				},
 				RootLogger,
+				RequestLogger,
 			],
 			imports: [AsyncContextModule.forRoot()],
 		};
