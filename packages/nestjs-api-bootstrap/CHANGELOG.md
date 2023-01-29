@@ -1,5 +1,12 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.19
+
+### Patch Changes
+
+-   6107c7f: fix missing async context
+-   6107c7f: fix missing async context
+
 ## 1.0.18
 
 ### Patch Changes
