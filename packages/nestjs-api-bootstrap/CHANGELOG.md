@@ -1,5 +1,11 @@
 # @vdtn359/nestjs-bootstrap
 
+## 1.0.18
+
+### Patch Changes
+
+-   3b3f9af: export async context
+
 ## 1.0.17
 
 ### Patch Changes

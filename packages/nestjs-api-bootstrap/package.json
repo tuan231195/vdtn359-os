@@ -1,6 +1,6 @@
 {
     "name": "@vdtn359/nestjs-api-bootstrap",
-    "version": "1.0.17",
+    "version": "1.0.18",
     "description": "Nestjs api bootstrap",
     "types": "dist/index.d.ts",
     "repository": {
