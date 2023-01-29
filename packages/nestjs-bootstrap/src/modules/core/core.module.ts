@@ -2,7 +2,10 @@ import { DynamicModule, Module } from '@nestjs/common';
 import { RequestLogger, RootLogger } from './services';
 import { BOOTSTRAP_OPTIONS_TOKEN, CONFIG_TOKEN } from './tokens';
 import { BootstrapOptions } from 'src/modules/core/interface';
-import { AsyncContextModule } from '@nestjs-steroids/async-context';
+import {
+	AsyncContext,
+	AsyncContextModule,
+} from '@nestjs-steroids/async-context';
 @Module({})
 export class CoreModule {
 	static register(bootstrapOptions: BootstrapOptions): DynamicModule {
@@ -31,6 +34,7 @@ export class CoreModule {
 				},
 				RootLogger,
 				RequestLogger,
+				AsyncContext,
 			],
 			imports: [AsyncContextModule.forRoot()],
 		};

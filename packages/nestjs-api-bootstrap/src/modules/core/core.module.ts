@@ -1,5 +1,8 @@
 import { DynamicModule, Module } from '@nestjs/common';
-import { AsyncContextModule } from '@nestjs-steroids/async-context';
+import {
+	AsyncContext,
+	AsyncContextModule,
+} from '@nestjs-steroids/async-context';
 import { ContextInterceptor } from './middlewares';
 import { RequestLogger, RootLogger } from './services';
 import { ValidationPipe } from './filters';
@@ -38,6 +41,7 @@ export class CoreModule {
 				RequestLogger,
 				ValidationPipe,
 				ContextInterceptor,
+				AsyncContext,
 			],
 			imports: [AsyncContextModule.forRoot()],
 		};
